@@ -69,17 +69,17 @@ Rule: every new modification must add or update relevant tasks here before or du
 
 ## Module 4: Chat Mode
 
-- [ ] Build `ChatSidePanel`.
-- [ ] Build `ChatWorkspace`.
-- [ ] Build `ChatThread`.
-- [ ] Build `ChatComposer`.
-- [ ] Build shared `UploadList`.
-- [ ] Add chat sessions list.
-- [ ] Add chat upload handling.
-- [ ] Add composer attachment handling.
-- [ ] Add send message behavior.
-- [ ] Add empty message validation toast.
-- [ ] Add `No preview in Chat` UI.
+- [x] Build `ChatSidePanel`.
+- [x] Build `ChatWorkspace`.
+- [x] Build `ChatThread`.
+- [x] Build `ChatComposer`.
+- [x] Build shared `UploadList`.
+- [x] Add chat sessions list.
+- [x] Add chat upload handling.
+- [x] Add composer attachment handling.
+- [x] Add send message behavior.
+- [x] Add empty message validation toast.
+- [x] Add `No preview in Chat` UI.
 
 ## Module 5: Code Side Panel and Workspace Files
 

@@ -1,4 +1,5 @@
-import { Eye, MessageSquare, PanelRightClose, PanelRightOpen, Play, TerminalSquare } from "lucide-react";
+import { Eye, PanelRightClose, PanelRightOpen, Play, TerminalSquare } from "lucide-react";
+import ChatWorkspace from "../chat/ChatWorkspace.jsx";
 import EditorTabs from "../code/EditorTabs.jsx";
 import EditorToolbar from "../code/EditorToolbar.jsx";
 import MonacoCodeEditor from "../code/MonacoCodeEditor.jsx";
@@ -7,21 +8,7 @@ import { getEditorValue, getOpenFiles, isFileDirty } from "../../editor/editorMo
 
 function Workspace({ state, dispatch }) {
   if (state.currentView === "chat") {
-    return (
-      <main className="workspace-panel workspace-panel--chat">
-        <section className="workspace-card workspace-card--wide">
-          <p className="panel-label">Chat mode</p>
-          <h2>Think, plan, and gather files</h2>
-          <p>
-            Chat mode is intentionally focused on conversation. Preview stays hidden here so planning and uploaded context do not compete with the editor.
-          </p>
-          <div className="info-strip">
-            <MessageSquare size={18} />
-            <span>No preview in Chat mode.</span>
-          </div>
-        </section>
-      </main>
-    );
+    return <ChatWorkspace state={state} dispatch={dispatch} />;
   }
 
   if (state.currentView === "preview") {

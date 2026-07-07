@@ -41,6 +41,8 @@ Prepare and then build a React/Vite frontend prototype for Tri Studio. The proto
 - Used for conversation, planning, and file upload.
 - Must hide preview.
 - Must hide Agent Dock.
+- Module 4 implements Chat with `ChatSidePanel`, `ChatWorkspace`, `ChatThread`, `ChatComposer`, and shared `UploadList`.
+- Chat uploads and composer attachments are stored as metadata in `chatUploads`; they do not read or write file contents.
 
 ### Code
 
@@ -111,5 +113,6 @@ Before or during every implementation change:
 - Dev server verified at `http://127.0.0.1:5173`.
 - Module 2 editor shell is complete with mode switching, conditional Agent Dock, side-panel switching, status bar, and toast feedback.
 - Module 3 Monaco Editor Core is complete with file tabs, Monaco editing, language mapping, custom light theme, reducer-backed editor values, and dirty state.
+- Module 4 Chat Mode is complete with sessions, upload metadata, seeded messages, message sending, empty-message validation, and the `No preview in Chat` card.
 - In this sandbox, `npm run dev` may require elevated execution because Vite startup can hit a dependency spawn `EPERM`.
 

@@ -6,6 +6,9 @@ All notable changes to the Tri Studio app and project documents will be recorded
 
 ### Added
 
+- Completed Module 4 Chat Mode with `ChatSidePanel`, `ChatWorkspace`, `ChatThread`, `ChatComposer`, and shared `UploadList` components.
+- Added mock chat sessions/messages and reducer-backed chat uploads, composer attachments, message sending, and empty-message validation toast.
+- Added file upload utilities for converting selected `FileList` values into prototype upload metadata.
 - Completed Module 3 Monaco Editor Core with Monaco mounted in Code mode, editor tabs, editor toolbar, custom light theme, mock file models, language mapping, reducer-backed editor values, and dirty file tracking.
 - Added `src/data/mockFiles.js`, editor helpers under `src/editor`, and code editor components under `src/components/code`.
 - Added a prototype inline preview toggle around the Monaco editor to verify automatic layout behavior before the richer Module 6 preview implementation.
@@ -27,6 +30,8 @@ All notable changes to the Tri Studio app and project documents will be recorded
 
 ### Notes
 
+- Module 4 verification: `npm run build` passes and local dev server returned HTTP 200.
+- In-app browser smoke testing was unavailable because the browser surface reported `Browser is not available: iab`.
 - Module 3 verification: `npm run build` passes and local dev server returned HTTP 200.
 - Module 2 verification: `npm run build` passes and local dev server returned HTTP 200.
 - `npm run build` passes.

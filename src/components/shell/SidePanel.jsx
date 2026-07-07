@@ -1,4 +1,5 @@
-import { Bot, Circle, FileCode2, FolderOpen, MessageSquare, Monitor, RefreshCw, Upload } from "lucide-react";
+import { Bot, Circle, FileCode2, FolderOpen, Monitor, RefreshCw, Upload } from "lucide-react";
+import ChatSidePanel from "../chat/ChatSidePanel.jsx";
 import { mockFiles } from "../../data/mockFiles.js";
 
 const codeTabs = [
@@ -9,22 +10,7 @@ const codeTabs = [
 
 function SidePanel({ state, dispatch }) {
   if (state.currentView === "chat") {
-    return (
-      <aside className="side-panel">
-        <p className="panel-label">Chat</p>
-        <h1>Planning space</h1>
-        <div className="panel-stack">
-          <div className="mini-list-item is-active">
-            <MessageSquare size={16} />
-            <span>Current conversation</span>
-          </div>
-          <button className="quiet-action" type="button" onClick={() => dispatch({ type: "SHOW_TOAST", message: "Chat uploads arrive in Module 4." })}>
-            <Upload size={16} />
-            <span>Upload to Chat</span>
-          </button>
-        </div>
-      </aside>
-    );
+    return <ChatSidePanel state={state} dispatch={dispatch} />;
   }
 
   if (state.currentView === "preview") {

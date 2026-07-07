@@ -7,6 +7,7 @@ import AgentDock from "./components/shell/AgentDock.jsx";
 import StatusBar from "./components/shell/StatusBar.jsx";
 import Toast from "./components/common/Toast.jsx";
 import { createInitialEditorValues, getMockFile, mockFiles } from "./data/mockFiles.js";
+import { initialChatMessages } from "./data/mockMessages.js";
 
 const initialState = {
   currentView: "chat",
@@ -26,7 +27,7 @@ const initialState = {
   permissionMode: "safe-approval",
   chatUploads: [],
   codeUploads: [],
-  chatMessages: [],
+  chatMessages: initialChatMessages,
   terminalLogs: [],
   editorValues: createInitialEditorValues(),
   toast: null,
@@ -93,6 +94,26 @@ function reducer(state, action) {
         dirtyFileIds: isDirty ? addUnique(state.dirtyFileIds, action.fileId) : removeItem(state.dirtyFileIds, action.fileId),
       };
     }
+    case "ADD_CHAT_UPLOADS":
+      return {
+        ...state,
+        chatUploads: [...state.chatUploads, ...action.uploads],
+        toast: { id: Date.now(), message: action.toast ?? `${action.uploads.length} file${action.uploads.length === 1 ? "" : "s"} added to Chat.` },
+      };
+    case "ADD_CHAT_MESSAGE":
+      return {
+        ...state,
+        chatMessages: [
+          ...state.chatMessages,
+          {
+            id: `chat-${Date.now()}`,
+            role: "user",
+            author: "You",
+            text: action.text,
+            time: new Intl.DateTimeFormat("en", { hour: "2-digit", minute: "2-digit" }).format(new Date()),
+          },
+        ],
+      };
     case "TOGGLE_PREVIEW":
       return { ...state, previewHidden: !state.previewHidden };
     case "RESET_EDITOR_VALUE": {
