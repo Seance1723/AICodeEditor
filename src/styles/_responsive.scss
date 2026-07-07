@@ -41,6 +41,14 @@
 }
 
 @media (max-width: 900px) {
+  .settings-row {
+    grid-template-columns: 1fr;
+  }
+
+  .settings-row-control {
+    justify-content: flex-start;
+  }
+
   .top-bar {
     gap: 8px;
     padding: 0 10px;

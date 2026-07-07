@@ -198,18 +198,17 @@ Rule: every new modification must add or update relevant tasks here before or du
 
 ## Module 13: Shared Settings Components
 
-- [ ] Build `SettingsWorkspace`.
-- [ ] Build `SettingsContent`.
-- [ ] Build `SettingsSectionHeader`.
-- [ ] Build `SettingsCard`.
-- [ ] Build `SettingsRow`.
-- [ ] Build `ToggleRow`.
-- [ ] Build `SegmentedControl`.
-- [ ] Build number, text, and select field primitives.
-- [ ] Build shared status/risk badges.
-- [ ] Build `InlineConfirm`.
-- [ ] Add light-mode settings styles consistent with the editor shell.
-
+- [x] Build `SettingsWorkspace`.
+- [x] Build `SettingsContent`.
+- [x] Build `SettingsSectionHeader`.
+- [x] Build `SettingsCard`.
+- [x] Build `SettingsRow`.
+- [x] Build `ToggleRow`.
+- [x] Build `SegmentedControl`.
+- [x] Build number, text, and select field primitives.
+- [x] Build shared status/risk badges.
+- [x] Build `InlineConfirm`.
+- [x] Add light-mode settings styles consistent with the editor shell.
 ## Module 14: Settings Drawer System
 
 - [ ] Build `SettingsDrawer`.
