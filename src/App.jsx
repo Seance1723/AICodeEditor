@@ -69,6 +69,8 @@ function reducer(state, action) {
       return { ...state, activeSideTab: action.tab };
     case "SET_DOCK_TAB":
       return { ...state, activeDockTab: action.tab };
+    case "SET_BOTTOM_TAB":
+      return { ...state, activeBottomTab: action.tab };
     case "SET_WORKSPACE":
       return {
         ...state,
@@ -146,6 +148,11 @@ function reducer(state, action) {
         workspaceStatus: `${action.uploads.length} code file${action.uploads.length === 1 ? "" : "s"} selected for prototype workspace`,
         terminalLogs: [...state.terminalLogs, createTerminalLog(`${action.uploads.length} code file${action.uploads.length === 1 ? "" : "s"} uploaded to code context.`, "success")],
         toast: { id: Date.now(), message: `${action.uploads.length} code file${action.uploads.length === 1 ? "" : "s"} selected.` },
+      };
+    case "ADD_TERMINAL_LOG":
+      return {
+        ...state,
+        terminalLogs: [...state.terminalLogs, createTerminalLog(action.message, action.logType ?? "default")],
       };
     case "TOGGLE_PREVIEW":
       return { ...state, previewHidden: !state.previewHidden };

@@ -6,6 +6,9 @@ All notable changes to the Tri Studio app and project documents will be recorded
 
 ### Added
 
+- Completed Module 6 Code Workspace and Preview with `CodeWorkspace`, `InlineAgentPrompt`, `InlinePreview`, and `BottomPanel` components.
+- Added code header with branch label, current task strip, View Plan action, Pause and Approve controls, simulated Run Agents timed terminal logs, inline agent prompt, inline preview mock browser, and bottom panel tabs for Terminal, Problems, Agent Log, and Approvals.
+- Added reducer support for bottom panel tab switching and terminal log appends.
 - Completed Module 5 Code Side Panel and Workspace Files with `CodeSidePanel`, `ProjectActions`, `FileTree`, and `ChangedFilesList` components.
 - Added Create Project simulation, local folder selection with `webkitdirectory`, folder-name inference, code upload metadata handling, uploaded code file rendering, and dirty-file change listing.
 - Added workspace and terminal-log reducer actions for project creation, folder selection, and code upload events.
@@ -33,6 +36,7 @@ All notable changes to the Tri Studio app and project documents will be recorded
 
 ### Notes
 
+- Module 6 verification: `npm run build` passes.
 - Module 5 verification: `npm run build` passes and local dev server returned HTTP 200.
 - Module 4 verification: `npm run build` passes and local dev server returned HTTP 200.
 - In-app browser smoke testing was unavailable because the browser surface reported `Browser is not available: iab`.

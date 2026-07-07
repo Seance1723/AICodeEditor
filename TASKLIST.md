@@ -98,17 +98,17 @@ Rule: every new modification must add or update relevant tasks here before or du
 
 ## Module 6: Code Workspace and Preview
 
-- [ ] Build `CodeWorkspace`.
-- [ ] Build `InlineAgentPrompt`.
-- [ ] Build `InlinePreview`.
-- [ ] Build `BottomPanel`.
-- [ ] Add code header with project title and branch.
-- [ ] Add Run Agents button.
-- [ ] Add Toggle Preview button.
-- [ ] Add Current Task strip.
-- [ ] Add View Plan action.
-- [ ] Add timed terminal log simulation.
-- [ ] Add Terminal, Problems, Agent Log, and Approvals tabs.
+- [x] Build `CodeWorkspace`.
+- [x] Build `InlineAgentPrompt`.
+- [x] Build `InlinePreview`.
+- [x] Build `BottomPanel`.
+- [x] Add code header with project title and branch.
+- [x] Add Run Agents button.
+- [x] Add Toggle Preview button.
+- [x] Add Current Task strip.
+- [x] Add View Plan action.
+- [x] Add timed terminal log simulation.
+- [x] Add Terminal, Problems, Agent Log, and Approvals tabs.
 
 ## Module 7: Agent Dock and Agent Manager
 
