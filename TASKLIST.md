@@ -184,16 +184,17 @@ Rule: every new modification must add or update relevant tasks here before or du
 - [x] Render Settings full-page in the main workspace area.
 - [x] Ensure Chat, Code, and Preview top switcher actions exit Settings.
 - [x] Add Settings-specific status bar text.
+
 ## Module 12: Settings Navigation and Search
 
-- [ ] Create centralized settings section data.
-- [ ] Build `SettingsSidebar`.
-- [ ] Build `SettingsSearch`.
-- [ ] Render grouped navigation for General, AI, Execution, Security, and Workspace.
-- [ ] Add selected section state.
-- [ ] Add search filtering by group, section label, description, and row labels.
-- [ ] Add search empty state.
-- [ ] Add keyboard navigation with Arrow Up, Arrow Down, Home, and End.
+- [x] Create centralized settings section data.
+- [x] Build `SettingsSidebar`.
+- [x] Build `SettingsSearch`.
+- [x] Render grouped navigation for General, AI, Execution, Security, and Workspace.
+- [x] Add selected section state.
+- [x] Add search filtering by group, section label, description, and row labels.
+- [x] Add search empty state.
+- [x] Add keyboard navigation with Arrow Up, Arrow Down, Home, and End.
 
 ## Module 13: Shared Settings Components
 

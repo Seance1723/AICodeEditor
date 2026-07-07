@@ -70,6 +70,10 @@
     align-items: stretch;
   }
 
+  .settings-workspace-header .quiet-action {
+    justify-content: center;
+  }
+
   .current-task-strip {
     grid-template-columns: 1fr 1fr;
   }
@@ -199,6 +203,10 @@
 
   .workspace-panel {
     padding: 10px;
+  }
+
+  .settings-workspace-header .quiet-action {
+    justify-content: center;
   }
 
   .current-task-strip {

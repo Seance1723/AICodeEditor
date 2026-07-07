@@ -1,14 +1,18 @@
-import { ArrowLeft, CheckCircle2, PanelLeft, ShieldCheck } from "lucide-react";
+import { ArrowLeft, ChevronRight, Search } from "lucide-react";
+import { filterSettingsGroups, flattenSettingsGroups, getSettingsSection } from "../../data/settingsSections.js";
 
 function SettingsWorkspace({ state, dispatch }) {
+  const selectedSection = getSettingsSection(state.activeSettingsSection);
+  const filteredSections = flattenSettingsGroups(filterSettingsGroups(state.settingsSearchQuery));
+
   return (
     <main className="workspace-panel workspace-panel--settings">
       <section className="settings-workspace">
         <header className="settings-workspace-header">
           <div>
-            <p className="panel-label">Settings</p>
-            <h2>System configuration</h2>
-            <p>Settings now opens as a full-page workspace while the editor shell stays visible.</p>
+            <p className="panel-label">Settings / {selectedSection.groupLabel} / {selectedSection.label}</p>
+            <h2>{selectedSection.label}</h2>
+            <p>{selectedSection.description}</p>
           </div>
           <button
             className="quiet-action"
@@ -20,28 +24,54 @@ function SettingsWorkspace({ state, dispatch }) {
           </button>
         </header>
 
-        <div className="settings-shell-preview" aria-label="Settings shell integration status">
-          <article>
-            <PanelLeft size={22} />
-            <div>
-              <strong>Navigation replaces the side panel</strong>
-              <span>The normal project, chat, or preview side panel is swapped for Settings navigation.</span>
+        <div className="settings-content-preview">
+          {state.settingsSearchQuery ? (
+            <section className="settings-search-results" aria-label="Settings search results">
+              <div className="settings-results-header">
+                <Search size={17} />
+                <div>
+                  <strong>Search results for "{state.settingsSearchQuery}"</strong>
+                  <span>{filteredSections.length} matching section{filteredSections.length === 1 ? "" : "s"}</span>
+                </div>
+              </div>
+              <div className="settings-result-list">
+                {filteredSections.length > 0 ? (
+                  filteredSections.map((section) => (
+                    <button
+                      className={section.id === state.activeSettingsSection ? "settings-result is-active" : "settings-result"}
+                      type="button"
+                      key={section.id}
+                      onClick={() => dispatch({ type: "SET_SETTINGS_SECTION", sectionId: section.id })}
+                    >
+                      <span>{section.groupLabel}</span>
+                      <ChevronRight size={14} />
+                      <strong>{section.label}</strong>
+                    </button>
+                  ))
+                ) : (
+                  <p className="empty-line">No settings match the current search.</p>
+                )}
+              </div>
+            </section>
+          ) : null}
+
+          <section className="settings-section-preview" aria-label={`${selectedSection.label} settings preview`}>
+            <div className="settings-section-summary">
+              <span>{selectedSection.groupLabel}</span>
+              <strong>{selectedSection.rows.length} planned setting{selectedSection.rows.length === 1 ? "" : "s"}</strong>
             </div>
-          </article>
-          <article>
-            <ShieldCheck size={22} />
-            <div>
-              <strong>Agent Dock hidden</strong>
-              <span>Settings has room for larger controls and avoids mixing configuration with agent activity.</span>
+            <div className="settings-row-preview-list">
+              {selectedSection.rows.map((row) => (
+                <article className="settings-row-preview" key={row}>
+                  <div>
+                    <strong>{row}</strong>
+                    <span>{selectedSection.label} configuration row</span>
+                  </div>
+                  <ChevronRight size={16} />
+                </article>
+              ))}
             </div>
-          </article>
-          <article>
-            <CheckCircle2 size={22} />
-            <div>
-              <strong>Shell orientation preserved</strong>
-              <span>Topbar, activity rail, and status bar stay in place while Settings owns the main workspace.</span>
-            </div>
-          </article>
+          </section>
         </div>
       </section>
     </main>

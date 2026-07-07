@@ -84,6 +84,9 @@ Continue building the React/Vite frontend prototype for Tri Studio. The complete
 - Settings state is prototype/mock state in the next modules; real persistence and OS keychain integration are later enhancements.
 - Module 11 implements Settings shell integration with `currentView: "settings"`, `previousMainView`, gear/topbar entry points, hidden Agent Dock, SettingsSidebar placeholder, SettingsWorkspace placeholder, and Settings status bar copy.
 - While Settings is open, clicking Files, Search, Git, Agents, or Tools in the activity rail returns to Code mode and activates the matching rail/sidebar state.
+- Module 12 implements Settings navigation and search with centralized section data in `src/data/settingsSections.js`, reducer state for `activeSettingsSection` and `settingsSearchQuery`, `SettingsSearch`, grouped sidebar navigation, keyboard movement, empty search state, and selected-section preview content.
+- Settings search filters by group label, section label, section description, and planned row labels.
+
 ## Core Architecture Decisions
 
 - `App.jsx` now owns prototype state with `useReducer` and passes state/actions into shell components.
@@ -160,5 +163,6 @@ Before or during every implementation change:
 - Module 10 QA and Build Verification is complete except browser-console inspection, which is blocked because the in-app browser surface is unavailable in this session. Production build, local HTTP, source hygiene, and static workflow coverage checks pass.
 - Settings layout planning is complete: Modules 11-19 now cover Settings shell integration, navigation/search, shared settings components, drawer system, General settings, AI settings, Execution settings, Security/Workspace settings, and Settings QA.
 - Module 11 Settings Shell Integration is complete and `npm run build` passes.
+- Module 12 Settings Navigation and Search is complete and `npm run build` passes.
 - In this sandbox, `npm run dev` may require elevated execution because Vite startup can hit a dependency spawn `EPERM`.
 

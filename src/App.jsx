@@ -17,6 +17,8 @@ const initialState = {
   activeSideTab: "files",
   activeDockTab: "tasks",
   activeBottomTab: "terminal",
+  activeSettingsSection: "appearance",
+  settingsSearchQuery: "",
   workspaceName: "No folder selected",
   workspaceStatus: "No folder selected",
   projectTitle: "tri-agent-app",
@@ -101,6 +103,14 @@ function reducer(state, action) {
     }
     case "SET_SIDE_TAB":
       return { ...state, activeSideTab: action.tab };
+    case "SET_SETTINGS_SECTION":
+      return { ...state, activeSettingsSection: action.sectionId };
+    case "SET_SETTINGS_SEARCH":
+      return {
+        ...state,
+        settingsSearchQuery: action.query,
+        activeSettingsSection: action.firstSectionId ?? state.activeSettingsSection,
+      };
     case "SET_DOCK_TAB":
       return { ...state, activeDockTab: action.tab };
     case "SET_BOTTOM_TAB":
