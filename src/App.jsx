@@ -6,6 +6,7 @@ import Workspace from "./components/shell/Workspace.jsx";
 import AgentDock from "./components/shell/AgentDock.jsx";
 import StatusBar from "./components/shell/StatusBar.jsx";
 import Toast from "./components/common/Toast.jsx";
+import { createInitialEditorValues, getMockFile, mockFiles } from "./data/mockFiles.js";
 
 const initialState = {
   currentView: "chat",
@@ -27,9 +28,17 @@ const initialState = {
   codeUploads: [],
   chatMessages: [],
   terminalLogs: [],
-  editorValues: {},
+  editorValues: createInitialEditorValues(),
   toast: null,
 };
+
+function addUnique(items, item) {
+  return items.includes(item) ? items : [...items, item];
+}
+
+function removeItem(items, item) {
+  return items.filter((value) => value !== item);
+}
 
 function reducer(state, action) {
   switch (action.type) {
@@ -50,6 +59,54 @@ function reducer(state, action) {
       return { ...state, activeSideTab: action.tab };
     case "SET_DOCK_TAB":
       return { ...state, activeDockTab: action.tab };
+    case "OPEN_FILE":
+      return {
+        ...state,
+        selectedFileId: action.fileId,
+        openFileIds: addUnique(state.openFileIds, action.fileId),
+        currentView: "code",
+      };
+    case "SET_SELECTED_FILE":
+      return {
+        ...state,
+        selectedFileId: action.fileId,
+        openFileIds: addUnique(state.openFileIds, action.fileId),
+      };
+    case "CLOSE_FILE": {
+      const nextOpenFiles = removeItem(state.openFileIds, action.fileId);
+      const fallbackFileId = nextOpenFiles.at(-1) ?? mockFiles[0].id;
+      return {
+        ...state,
+        openFileIds: nextOpenFiles.length > 0 ? nextOpenFiles : [fallbackFileId],
+        selectedFileId: state.selectedFileId === action.fileId ? fallbackFileId : state.selectedFileId,
+      };
+    }
+    case "UPDATE_EDITOR_VALUE": {
+      const original = getMockFile(action.fileId).value;
+      const isDirty = action.value !== original;
+      return {
+        ...state,
+        editorValues: {
+          ...state.editorValues,
+          [action.fileId]: action.value,
+        },
+        dirtyFileIds: isDirty ? addUnique(state.dirtyFileIds, action.fileId) : removeItem(state.dirtyFileIds, action.fileId),
+      };
+    }
+    case "TOGGLE_PREVIEW":
+      return { ...state, previewHidden: !state.previewHidden };
+    case "RESET_EDITOR_VALUE": {
+      const file = getMockFile(action.fileId);
+      return {
+        ...state,
+        editorValues: {
+          ...state.editorValues,
+          [file.id]: file.value,
+        },
+        dirtyFileIds: removeItem(state.dirtyFileIds, file.id),
+        toast: { id: Date.now(), message: `${file.name} reset to mock content.` },
+      };
+    }
     case "SHOW_TOAST":
       return { ...state, toast: { id: Date.now(), message: action.message } };
     case "CLEAR_TOAST":

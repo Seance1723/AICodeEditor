@@ -1,4 +1,5 @@
-import { Bot, FileCode2, FolderOpen, MessageSquare, Monitor, RefreshCw, Upload } from "lucide-react";
+import { Bot, Circle, FileCode2, FolderOpen, MessageSquare, Monitor, RefreshCw, Upload } from "lucide-react";
+import { mockFiles } from "../../data/mockFiles.js";
 
 const codeTabs = [
   { id: "files", label: "Files" },
@@ -45,6 +46,8 @@ function SidePanel({ state, dispatch }) {
     );
   }
 
+  const dirtyFiles = mockFiles.filter((file) => state.dirtyFileIds.includes(file.id));
+
   return (
     <aside className="side-panel">
       <p className="panel-label">Workspace</p>
@@ -74,10 +77,18 @@ function SidePanel({ state, dispatch }) {
       </div>
       <div className="panel-stack">
         {state.activeSideTab === "files" ? (
-          <>
-            <div className="mini-list-item is-active"><FileCode2 size={16} /><span>src/App.jsx</span></div>
-            <div className="mini-list-item"><FileCode2 size={16} /><span>src/styles/main.scss</span></div>
-          </>
+          mockFiles.map((file) => (
+            <button
+              className={file.id === state.selectedFileId ? "mini-list-item is-active" : "mini-list-item"}
+              type="button"
+              key={file.id}
+              onClick={() => dispatch({ type: "OPEN_FILE", fileId: file.id })}
+            >
+              <FileCode2 size={16} />
+              <span>{file.path}</span>
+              {state.dirtyFileIds.includes(file.id) ? <Circle className="dirty-indicator" size={8} fill="currentColor" /> : null}
+            </button>
+          ))
         ) : null}
         {state.activeSideTab === "agents" ? (
           <>
@@ -85,7 +96,19 @@ function SidePanel({ state, dispatch }) {
             <div className="mini-list-item"><Bot size={16} /><span>QA Tester waiting</span></div>
           </>
         ) : null}
-        {state.activeSideTab === "changes" ? <div className="empty-line">No changed files yet.</div> : null}
+        {state.activeSideTab === "changes" ? (
+          dirtyFiles.length > 0 ? dirtyFiles.map((file) => (
+            <button
+              className="mini-list-item"
+              type="button"
+              key={file.id}
+              onClick={() => dispatch({ type: "OPEN_FILE", fileId: file.id })}
+            >
+              <Circle className="dirty-indicator" size={8} fill="currentColor" />
+              <span>{file.path}</span>
+            </button>
+          )) : <div className="empty-line">No changed files yet.</div>
+        ) : null}
       </div>
     </aside>
   );

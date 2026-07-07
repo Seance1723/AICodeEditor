@@ -6,6 +6,9 @@ All notable changes to the Tri Studio app and project documents will be recorded
 
 ### Added
 
+- Completed Module 3 Monaco Editor Core with Monaco mounted in Code mode, editor tabs, editor toolbar, custom light theme, mock file models, language mapping, reducer-backed editor values, and dirty file tracking.
+- Added `src/data/mockFiles.js`, editor helpers under `src/editor`, and code editor components under `src/components/code`.
+- Added a prototype inline preview toggle around the Monaco editor to verify automatic layout behavior before the richer Module 6 preview implementation.
 - Completed Module 2 editor shell with `TopBar`, `ActivityRail`, `SidePanel`, `Workspace`, `AgentDock`, `StatusBar`, and `Toast` components.
 - Added `useReducer` app state for Chat, Code, and Preview mode switching.
 - Added shell placeholder content for Chat, Code, and Preview workspaces while preserving the rule that Chat never shows preview and Agent Dock appears only in Code mode.
@@ -24,6 +27,7 @@ All notable changes to the Tri Studio app and project documents will be recorded
 
 ### Notes
 
+- Module 3 verification: `npm run build` passes and local dev server returned HTTP 200.
 - Module 2 verification: `npm run build` passes and local dev server returned HTTP 200.
 - `npm run build` passes.
 - `npm run dev -- --port 5173` serves the app at `http://127.0.0.1:5173`.

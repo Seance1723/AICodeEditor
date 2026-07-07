@@ -1,4 +1,9 @@
-import { Code2, Eye, MessageSquare, Play, TerminalSquare } from "lucide-react";
+import { Eye, MessageSquare, PanelRightClose, PanelRightOpen, Play, TerminalSquare } from "lucide-react";
+import EditorTabs from "../code/EditorTabs.jsx";
+import EditorToolbar from "../code/EditorToolbar.jsx";
+import MonacoCodeEditor from "../code/MonacoCodeEditor.jsx";
+import { mockFiles } from "../../data/mockFiles.js";
+import { getEditorValue, getOpenFiles, isFileDirty } from "../../editor/editorModels.js";
 
 function Workspace({ state, dispatch }) {
   if (state.currentView === "chat") {
@@ -42,6 +47,10 @@ function Workspace({ state, dispatch }) {
     );
   }
 
+  const selectedFile = mockFiles.find((file) => file.id === state.selectedFileId) ?? mockFiles[0];
+  const openFiles = getOpenFiles(state, mockFiles);
+  const selectedValue = getEditorValue(state, selectedFile);
+
   return (
     <main className="workspace-panel workspace-panel--code">
       <section className="code-workspace-shell">
@@ -55,19 +64,36 @@ function Workspace({ state, dispatch }) {
               <Play size={16} />
               <span>Run agents</span>
             </button>
-            <button type="button" className="quiet-action" onClick={() => dispatch({ type: "SHOW_TOAST", message: "Monaco editor arrives in Module 3." })}>
-              <Code2 size={16} />
-              <span>Editor base</span>
+            <button type="button" className="quiet-action" onClick={() => dispatch({ type: "TOGGLE_PREVIEW" })}>
+              {state.previewHidden ? <PanelRightOpen size={16} /> : <PanelRightClose size={16} />}
+              <span>{state.previewHidden ? "Show preview" : "Hide preview"}</span>
             </button>
           </div>
         </div>
-        <div className="editor-placeholder">
-          <Code2 size={28} />
-          <div>
-            <h3>Monaco editor surface</h3>
-            <p>Module 3 will mount Monaco here and wire file selection into editor models.</p>
+
+        <div className={state.previewHidden ? "code-editor-grid is-editor-only" : "code-editor-grid"}>
+          <div className="editor-frame">
+          <EditorTabs
+            files={openFiles}
+            selectedFileId={state.selectedFileId}
+            dirtyFileIds={state.dirtyFileIds}
+            dispatch={dispatch}
+          />
+          <EditorToolbar file={selectedFile} isDirty={isFileDirty(state, selectedFile)} dispatch={dispatch} />
+          <MonacoCodeEditor
+            file={selectedFile}
+            value={selectedValue}
+            onChange={(value) => dispatch({ type: "UPDATE_EDITOR_VALUE", fileId: selectedFile.id, value })}
+          />
           </div>
+          {state.previewHidden ? null : (
+            <aside className="inline-preview-placeholder">
+              <p className="panel-label">Inline Preview</p>
+              <div className="preview-card-mini">Preview placeholder</div>
+            </aside>
+          )}
         </div>
+
         <div className="bottom-panel-shell">
           <TerminalSquare size={16} />
           <span>Bottom panel placeholder: Terminal, Problems, Agent Log, Approvals.</span>

@@ -61,8 +61,12 @@ Prepare and then build a React/Vite frontend prototype for Tri Studio. The proto
 - `AgentDock` is rendered only when `currentView === "code"`.
 - `Workspace` enforces mode separation: Chat shows planning content without preview, Code shows editor-shell placeholders, Preview shows a full preview placeholder.
 - Monaco replaces the original mock code editor from the first implementation pass.
-- Monaco should be wrapped in `MonacoCodeEditor` so future features can add decorations, diagnostics, diff view, and AI inline actions cleanly.
+- Monaco is wrapped in `src/components/code/MonacoCodeEditor.jsx` so future features can add decorations, diagnostics, diff view, and AI inline actions cleanly.
+- Monaco uses a custom `tri-studio-light` theme from `src/editor/monacoTheme.js` and default editor options from `src/editor/monacoConfig.js`.
 - File contents are stored in reducer state for the prototype.
+- Mock file metadata and initial content live in `src/data/mockFiles.js`.
+- `dirtyFileIds` is updated by comparing reducer editor values against mock source content.
+- The Code workspace has an early inline preview toggle to verify Monaco automatic layout; Module 6 will replace this with the full preview card behavior.
 - Uploaded/local files are represented as metadata and in-memory editor values only.
 - Dirty file state is tracked in app state, not written to disk.
 - Agent actions are simulated through timed logs and UI state.
@@ -106,5 +110,6 @@ Before or during every implementation change:
 - `npm run build` passes.
 - Dev server verified at `http://127.0.0.1:5173`.
 - Module 2 editor shell is complete with mode switching, conditional Agent Dock, side-panel switching, status bar, and toast feedback.
+- Module 3 Monaco Editor Core is complete with file tabs, Monaco editing, language mapping, custom light theme, reducer-backed editor values, and dirty state.
 - In this sandbox, `npm run dev` may require elevated execution because Vite startup can hit a dependency spawn `EPERM`.
 

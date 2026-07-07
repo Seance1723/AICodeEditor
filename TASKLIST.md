@@ -52,20 +52,20 @@ Rule: every new modification must add or update relevant tasks here before or du
 
 ## Module 3: Monaco Editor Core
 
-- [ ] Add `src/editor/monacoConfig.js`.
-- [ ] Add `src/editor/monacoTheme.js`.
-- [ ] Add `src/editor/editorModels.js`.
-- [ ] Add `src/editor/languageUtils.js`.
-- [ ] Build `MonacoCodeEditor`.
-- [ ] Build `EditorTabs`.
-- [ ] Build `EditorToolbar`.
-- [ ] Register custom light Monaco theme.
-- [ ] Map mock file languages to Monaco language IDs.
-- [ ] Wire selected file state to Monaco content.
-- [ ] Store editor changes in reducer state.
-- [ ] Track dirty file state.
-- [ ] Ensure Monaco uses automatic layout.
-- [ ] Confirm Monaco remains usable when inline preview is toggled.
+- [x] Add `src/editor/monacoConfig.js`.
+- [x] Add `src/editor/monacoTheme.js`.
+- [x] Add `src/editor/editorModels.js`.
+- [x] Add `src/editor/languageUtils.js`.
+- [x] Build `MonacoCodeEditor`.
+- [x] Build `EditorTabs`.
+- [x] Build `EditorToolbar`.
+- [x] Register custom light Monaco theme.
+- [x] Map mock file languages to Monaco language IDs.
+- [x] Wire selected file state to Monaco content.
+- [x] Store editor changes in reducer state.
+- [x] Track dirty file state.
+- [x] Ensure Monaco uses automatic layout.
+- [x] Confirm Monaco remains usable when inline preview is toggled.
 
 ## Module 4: Chat Mode
 

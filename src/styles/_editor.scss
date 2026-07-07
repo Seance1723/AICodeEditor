@@ -1,8 +1,174 @@
-.monaco-editor-shell {
+.code-editor-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 32%);
+  gap: 12px;
   min-width: 0;
+  min-height: 0;
+  margin: 12px 0;
+}
+
+.code-editor-grid.is-editor-only {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.inline-preview-placeholder {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  min-width: 0;
+  min-height: 0;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.preview-card-mini {
+  display: grid;
+  place-items: center;
   min-height: 0;
   border: 1px solid var(--line);
   border-radius: var(--radius);
+  color: var(--muted);
+  background: var(--surface-2);
+}
+.editor-frame {
+  display: grid;
+  grid-template-rows: 40px 44px minmax(0, 1fr);
+  min-width: 0;
+  min-height: 0;
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--surface);
+}
+
+.editor-tabs {
+  display: flex;
+  min-width: 0;
+  min-height: 0;
+  overflow-x: auto;
+  border-bottom: 1px solid var(--line);
+  background: var(--surface-2);
+}
+
+.editor-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 132px;
+  max-width: 220px;
+  height: 40px;
+  padding: 0 10px;
+  border: 0;
+  border-right: 1px solid var(--line);
+  color: var(--muted);
+  background: transparent;
+}
+
+.editor-tab:hover,
+.editor-tab.is-active {
+  color: var(--text);
+  background: var(--surface);
+}
+
+.editor-tab-name {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.clean-dot,
+.dirty-dot {
+  width: 7px;
+  height: 7px;
+  flex: 0 0 auto;
+  border-radius: 999px;
+}
+
+.clean-dot {
+  background: var(--line-2);
+}
+
+.dirty-dot {
+  background: var(--warning);
+}
+
+.tab-close {
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  flex: 0 0 auto;
+  border-radius: 6px;
+  color: var(--soft);
+}
+
+.tab-close:hover,
+.tab-close:focus-visible {
+  color: var(--danger);
+  background: var(--surface-2);
+  outline: none;
+}
+
+.editor-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-width: 0;
+  padding: 0 10px;
+  border-bottom: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.editor-file-meta,
+.editor-toolbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.editor-file-meta {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.editor-file-meta span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.editor-file-meta strong {
+  flex: 0 0 auto;
+  color: var(--primary);
+  font-size: 12px;
+}
+
+.editor-toolbar .quiet-action {
+  min-height: 30px;
+  padding: 0 10px;
+  font-size: 12px;
+}
+
+.editor-toolbar .quiet-action:disabled {
+  cursor: not-allowed;
+  opacity: 0.48;
+}
+
+.monaco-editor-shell {
+  min-width: 0;
+  min-height: 0;
   background: var(--code-bg);
   overflow: hidden;
+}
+
+.monaco-editor-shell > section,
+.monaco-editor-shell .monaco-editor,
+.monaco-editor-shell .overflow-guard {
+  min-height: 0;
 }

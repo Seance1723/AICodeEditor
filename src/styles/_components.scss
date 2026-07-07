@@ -276,8 +276,10 @@
 .mini-list-item,
 .agent-summary {
   justify-content: flex-start;
+  width: 100%;
   padding: 10px;
   color: var(--muted);
+  text-align: left;
 }
 
 .mini-list-item.is-active {
@@ -300,6 +302,10 @@
   grid-template-rows: auto minmax(0, 1fr) auto;
   min-height: 0;
   padding: 18px;
+}
+
+.code-workspace-shell {
+  height: 100%;
 }
 
 .workspace-header,
@@ -422,4 +428,9 @@
   min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.dirty-indicator {
+  margin-left: auto;
+  color: var(--warning);
 }
