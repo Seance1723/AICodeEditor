@@ -6,6 +6,9 @@ All notable changes to the Tri Studio app and project documents will be recorded
 
 ### Added
 
+- Completed Module 2 editor shell with `TopBar`, `ActivityRail`, `SidePanel`, `Workspace`, `AgentDock`, `StatusBar`, and `Toast` components.
+- Added `useReducer` app state for Chat, Code, and Preview mode switching.
+- Added shell placeholder content for Chat, Code, and Preview workspaces while preserving the rule that Chat never shows preview and Agent Dock appears only in Code mode.
 - Completed Module 1 project foundation with Vite, React, Monaco dependencies, lucide icons, Sass, and an initial light-mode app shell placeholder.
 - Added `package.json`, `package-lock.json`, `index.html`, `vite.config.js`, `src/main.jsx`, `src/App.jsx`, and SCSS partials under `src/styles`.
 - Added `.gitignore` for dependency, build, and local environment outputs.
@@ -21,6 +24,7 @@ All notable changes to the Tri Studio app and project documents will be recorded
 
 ### Notes
 
+- Module 2 verification: `npm run build` passes and local dev server returned HTTP 200.
 - `npm run build` passes.
 - `npm run dev -- --port 5173` serves the app at `http://127.0.0.1:5173`.
 - Starting the Vite dev server required elevated execution because sandboxed startup hit a Vite dependency spawn `EPERM`.

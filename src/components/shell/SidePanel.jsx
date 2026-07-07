@@ -1,0 +1,94 @@
+import { Bot, FileCode2, FolderOpen, MessageSquare, Monitor, RefreshCw, Upload } from "lucide-react";
+
+const codeTabs = [
+  { id: "files", label: "Files" },
+  { id: "agents", label: "Agents" },
+  { id: "changes", label: "Changes" },
+];
+
+function SidePanel({ state, dispatch }) {
+  if (state.currentView === "chat") {
+    return (
+      <aside className="side-panel">
+        <p className="panel-label">Chat</p>
+        <h1>Planning space</h1>
+        <div className="panel-stack">
+          <div className="mini-list-item is-active">
+            <MessageSquare size={16} />
+            <span>Current conversation</span>
+          </div>
+          <button className="quiet-action" type="button" onClick={() => dispatch({ type: "SHOW_TOAST", message: "Chat uploads arrive in Module 4." })}>
+            <Upload size={16} />
+            <span>Upload to Chat</span>
+          </button>
+        </div>
+      </aside>
+    );
+  }
+
+  if (state.currentView === "preview") {
+    return (
+      <aside className="side-panel">
+        <p className="panel-label">Preview</p>
+        <h1>Preview settings</h1>
+        <div className="panel-stack">
+          <div className="mini-list-item is-active">
+            <Monitor size={16} />
+            <span>Desktop</span>
+          </div>
+          <button className="quiet-action" type="button" onClick={() => dispatch({ type: "SHOW_TOAST", message: "Preview refresh arrives in Module 8." })}>
+            <RefreshCw size={16} />
+            <span>Refresh preview</span>
+          </button>
+        </div>
+      </aside>
+    );
+  }
+
+  return (
+    <aside className="side-panel">
+      <p className="panel-label">Workspace</p>
+      <h1>{state.workspaceName}</h1>
+      <div className="panel-actions">
+        <button className="quiet-action" type="button" onClick={() => dispatch({ type: "SHOW_TOAST", message: "Project creation arrives in Module 5." })}>
+          <FolderOpen size={16} />
+          <span>Create project</span>
+        </button>
+        <button className="quiet-action" type="button" onClick={() => dispatch({ type: "SHOW_TOAST", message: "Code uploads arrive in Module 5." })}>
+          <Upload size={16} />
+          <span>Upload to code</span>
+        </button>
+      </div>
+      <div className="segmented-tabs" role="tablist" aria-label="Code side panel tabs">
+        {codeTabs.map((tab) => (
+          <button
+            className={tab.id === state.activeSideTab ? "is-active" : ""}
+            type="button"
+            role="tab"
+            key={tab.id}
+            onClick={() => dispatch({ type: "SET_SIDE_TAB", tab: tab.id })}
+          >
+            {tab.label}
+          </button>
+        ))}
+      </div>
+      <div className="panel-stack">
+        {state.activeSideTab === "files" ? (
+          <>
+            <div className="mini-list-item is-active"><FileCode2 size={16} /><span>src/App.jsx</span></div>
+            <div className="mini-list-item"><FileCode2 size={16} /><span>src/styles/main.scss</span></div>
+          </>
+        ) : null}
+        {state.activeSideTab === "agents" ? (
+          <>
+            <div className="mini-list-item is-active"><Bot size={16} /><span>UI Builder ready</span></div>
+            <div className="mini-list-item"><Bot size={16} /><span>QA Tester waiting</span></div>
+          </>
+        ) : null}
+        {state.activeSideTab === "changes" ? <div className="empty-line">No changed files yet.</div> : null}
+      </div>
+    </aside>
+  );
+}
+
+export default SidePanel;

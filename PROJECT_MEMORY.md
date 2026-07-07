@@ -56,6 +56,10 @@ Prepare and then build a React/Vite frontend prototype for Tri Studio. The proto
 
 ## Core Architecture Decisions
 
+- `App.jsx` now owns prototype state with `useReducer` and passes state/actions into shell components.
+- Shell components live under `src/components/shell`; shared toast lives under `src/components/common`.
+- `AgentDock` is rendered only when `currentView === "code"`.
+- `Workspace` enforces mode separation: Chat shows planning content without preview, Code shows editor-shell placeholders, Preview shows a full preview placeholder.
 - Monaco replaces the original mock code editor from the first implementation pass.
 - Monaco should be wrapped in `MonacoCodeEditor` so future features can add decorations, diagnostics, diff view, and AI inline actions cleanly.
 - File contents are stored in reducer state for the prototype.
@@ -101,5 +105,6 @@ Before or during every implementation change:
 - SCSS partial structure exists under `src/styles`.
 - `npm run build` passes.
 - Dev server verified at `http://127.0.0.1:5173`.
+- Module 2 editor shell is complete with mode switching, conditional Agent Dock, side-panel switching, status bar, and toast feedback.
 - In this sandbox, `npm run dev` may require elevated execution because Vite startup can hit a dependency spawn `EPERM`.
 

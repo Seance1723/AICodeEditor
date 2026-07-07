@@ -39,16 +39,16 @@ Rule: every new modification must add or update relevant tasks here before or du
 
 ## Module 2: Editor Shell
 
-- [ ] Build `TopBar`.
-- [ ] Build `ActivityRail`.
-- [ ] Build `SidePanel`.
-- [ ] Build `Workspace`.
-- [ ] Build `AgentDock`.
-- [ ] Build `StatusBar`.
-- [ ] Build `Toast`.
-- [ ] Implement Chat, Code, Preview view switching.
-- [ ] Hide Agent Dock outside Code mode.
-- [ ] Ensure Preview never appears in Chat mode.
+- [x] Build `TopBar`.
+- [x] Build `ActivityRail`.
+- [x] Build `SidePanel`.
+- [x] Build `Workspace`.
+- [x] Build `AgentDock`.
+- [x] Build `StatusBar`.
+- [x] Build `Toast`.
+- [x] Implement Chat, Code, Preview view switching.
+- [x] Hide Agent Dock outside Code mode.
+- [x] Ensure Preview never appears in Chat mode.
 
 ## Module 3: Monaco Editor Core
 

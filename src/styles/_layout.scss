@@ -12,6 +12,15 @@
   background: var(--bg);
 }
 
+.app-shell[data-mode="chat"],
+.app-shell[data-mode="preview"] {
+  grid-template-columns: var(--rail) var(--side) minmax(0, 1fr);
+  grid-template-areas:
+    "topbar topbar topbar"
+    "rail side workspace"
+    "status status status";
+}
+
 .top-bar {
   grid-area: topbar;
 }

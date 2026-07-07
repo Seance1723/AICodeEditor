@@ -1,80 +1,82 @@
-import { Bot, Code2, Eye, FolderTree, MessageSquare, ShieldCheck, Sparkles } from "lucide-react";
+import { useEffect, useReducer } from "react";
+import TopBar from "./components/shell/TopBar.jsx";
+import ActivityRail from "./components/shell/ActivityRail.jsx";
+import SidePanel from "./components/shell/SidePanel.jsx";
+import Workspace from "./components/shell/Workspace.jsx";
+import AgentDock from "./components/shell/AgentDock.jsx";
+import StatusBar from "./components/shell/StatusBar.jsx";
+import Toast from "./components/common/Toast.jsx";
 
-const modes = [
-  { id: "chat", label: "Chat", icon: MessageSquare },
-  { id: "code", label: "Code", icon: Code2 },
-  { id: "preview", label: "Preview", icon: Eye },
-];
+const initialState = {
+  currentView: "chat",
+  activeRail: "files",
+  activeSideTab: "files",
+  activeDockTab: "tasks",
+  activeBottomTab: "terminal",
+  workspaceName: "No folder selected",
+  workspaceStatus: "No folder selected",
+  projectTitle: "tri-agent-app",
+  selectedFileId: "app",
+  openFileIds: ["app"],
+  dirtyFileIds: [],
+  previewHidden: false,
+  previewDevice: "desktop",
+  agentModalOpen: false,
+  permissionMode: "safe-approval",
+  chatUploads: [],
+  codeUploads: [],
+  chatMessages: [],
+  terminalLogs: [],
+  editorValues: {},
+  toast: null,
+};
+
+function reducer(state, action) {
+  switch (action.type) {
+    case "SET_VIEW":
+      return {
+        ...state,
+        currentView: action.view,
+        activeRail: action.view === "code" ? state.activeRail : "files",
+        toast: action.view === "chat" ? { id: Date.now(), message: "Chat mode keeps preview hidden." } : null,
+      };
+    case "SET_RAIL":
+      return {
+        ...state,
+        activeRail: action.rail,
+        activeSideTab: action.rail === "agents" ? "agents" : action.rail === "git" ? "changes" : state.activeSideTab,
+      };
+    case "SET_SIDE_TAB":
+      return { ...state, activeSideTab: action.tab };
+    case "SET_DOCK_TAB":
+      return { ...state, activeDockTab: action.tab };
+    case "SHOW_TOAST":
+      return { ...state, toast: { id: Date.now(), message: action.message } };
+    case "CLEAR_TOAST":
+      return { ...state, toast: null };
+    default:
+      return state;
+  }
+}
 
 function App() {
-  const activeMode = "chat";
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  useEffect(() => {
+    if (!state.toast) return undefined;
+    const timer = window.setTimeout(() => dispatch({ type: "CLEAR_TOAST" }), 2600);
+    return () => window.clearTimeout(timer);
+  }, [state.toast]);
 
   return (
-    <div className="app-shell" data-mode={activeMode}>
-      <header className="top-bar">
-        <div className="brand-mark" aria-hidden="true">
-          <Sparkles size={20} />
-        </div>
-        <div className="brand-copy">
-          <strong>Tri Studio</strong>
-          <span>AI-native code editor</span>
-        </div>
-        <nav className="mode-switcher" aria-label="Workspace modes">
-          {modes.map(({ id, label, icon: Icon }) => (
-            <button className={id === activeMode ? "is-active" : ""} type="button" key={id}>
-              <Icon size={16} />
-              <span>{label}</span>
-            </button>
-          ))}
-        </nav>
-        <button className="status-pill" type="button">
-          <Bot size={16} />
-          <span>3 agents running</span>
-        </button>
-        <button className="status-pill status-pill--safe" type="button">
-          <ShieldCheck size={16} />
-          <span>Safe approval</span>
-        </button>
-      </header>
-
-      <aside className="activity-rail" aria-label="Primary navigation">
-        <button className="is-active" type="button" aria-label="Files">
-          <FolderTree size={20} />
-        </button>
-        <button type="button" aria-label="Agents">
-          <Bot size={20} />
-        </button>
-      </aside>
-
-      <aside className="side-panel">
-        <p className="panel-label">Module 1</p>
-        <h1>Project foundation</h1>
-        <p>
-          Vite, React, SCSS, lucide-react, and Monaco dependencies are being prepared for the editor shell.
-        </p>
-      </aside>
-
-      <main className="workspace-panel">
-        <section className="workspace-empty">
-          <p className="panel-label">Ready for Module 2</p>
-          <h2>Light-mode editor shell placeholder</h2>
-          <p>
-            This first screen confirms the app foundation is alive. The full Chat, Code, Preview shell and Monaco editor modules will build on this structure.
-          </p>
-        </section>
-      </main>
-
-      <aside className="agent-dock agent-dock--placeholder">
-        <p className="panel-label">Agent Dock</p>
-        <h2>Hidden outside Code mode</h2>
-        <p>The first complete shell will show this dock only when Code mode is active.</p>
-      </aside>
-
-      <footer className="status-bar">
-        <span>No folder selected</span>
-        <span>Monaco base planned</span>
-        <span>Light mode</span>
-      </footer>
+    <div className="app-shell" data-mode={state.currentView}>
+      <TopBar state={state} dispatch={dispatch} />
+      <ActivityRail state={state} dispatch={dispatch} />
+      <SidePanel state={state} dispatch={dispatch} />
+      <Workspace state={state} dispatch={dispatch} />
+      {state.currentView === "code" ? <AgentDock state={state} dispatch={dispatch} /> : null}
+      <StatusBar state={state} />
+      <Toast toast={state.toast} />
     </div>
   );
 }
