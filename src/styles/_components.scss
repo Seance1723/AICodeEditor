@@ -1952,3 +1952,237 @@ button.settings-row:hover {
   display: inline-flex;
   gap: 6px;
 }
+/* Module 14 settings drawer system */
+.settings-drawer-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 9;
+  display: flex;
+  justify-content: flex-end;
+  min-width: 0;
+  background: rgba(23, 32, 51, 0.22);
+}
+
+.workspace-panel--settings {
+  position: relative;
+}
+
+.settings-drawer {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  width: min(480px, 100%);
+  max-width: calc(100vw - var(--rail));
+  height: 100%;
+  border-left: 1px solid var(--line);
+  background: var(--surface);
+  box-shadow: -18px 0 45px rgba(18, 32, 61, 0.16);
+}
+
+.settings-drawer--wide {
+  width: min(860px, 90vw);
+}
+
+.settings-drawer-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  min-width: 0;
+  padding: 18px;
+  border-bottom: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.settings-drawer-header div {
+  display: grid;
+  gap: 5px;
+  min-width: 0;
+}
+
+.settings-drawer-header h3 {
+  margin: 0;
+  color: var(--text);
+  font-size: 22px;
+  line-height: 1.2;
+}
+
+.settings-drawer-header span:not(.panel-label) {
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.settings-drawer-body {
+  display: grid;
+  align-content: start;
+  gap: 14px;
+  min-height: 0;
+  padding: 18px;
+  overflow: auto;
+  background: var(--bg);
+}
+
+.settings-drawer-note {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.settings-drawer-note span:not(.settings-badge) {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.settings-drawer-field,
+.settings-drawer-check {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.settings-drawer-field span,
+.settings-drawer-check span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.settings-drawer-field input,
+.settings-drawer-field select,
+.settings-drawer-field textarea {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--text);
+  background: var(--surface-2);
+  outline: none;
+}
+
+.settings-drawer-field input,
+.settings-drawer-field select {
+  height: 38px;
+  padding: 0 10px;
+}
+
+.settings-drawer-field textarea {
+  min-height: 130px;
+  padding: 10px;
+  resize: vertical;
+}
+
+.settings-drawer-field input:focus,
+.settings-drawer-field select:focus,
+.settings-drawer-field textarea:focus {
+  border-color: var(--primary-2);
+  background: var(--surface);
+}
+
+.settings-drawer-field--number {
+  max-width: 180px;
+}
+
+.settings-drawer-check {
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+}
+
+.settings-drawer-check input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--primary);
+}
+
+.settings-drawer-footer {
+  position: sticky;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  min-width: 0;
+  padding: 14px 18px;
+  border-top: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.settings-drawer-footer > button,
+.settings-drawer-discard button {
+  min-height: 34px;
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--muted);
+  background: var(--surface-2);
+}
+
+.settings-drawer-footer > button:hover,
+.settings-drawer-discard button:hover {
+  color: var(--primary);
+  border-color: var(--line-2);
+  background: var(--surface-3);
+}
+
+.settings-drawer-save {
+  color: var(--surface) !important;
+  border-color: var(--primary) !important;
+  background: var(--primary) !important;
+}
+
+.settings-drawer-save:disabled {
+  color: var(--soft) !important;
+  border-color: var(--line) !important;
+  background: var(--surface-2) !important;
+}
+
+.settings-drawer-dirty {
+  margin-right: auto;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.settings-drawer-dirty.is-dirty {
+  color: var(--warning);
+  font-weight: 700;
+}
+
+.settings-drawer-discard {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 6px 10px;
+  width: 100%;
+}
+
+.settings-drawer-discard strong,
+.settings-drawer-discard span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.settings-drawer-discard strong {
+  color: var(--text);
+}
+
+.settings-drawer-discard span {
+  grid-column: 1;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.settings-drawer-discard .is-danger {
+  color: var(--danger);
+  border-color: rgba(239, 71, 111, 0.28);
+  background: #fff1f5;
+}

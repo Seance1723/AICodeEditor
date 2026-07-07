@@ -190,6 +190,18 @@
 }
 
 @media (max-width: 560px) {
+  .settings-drawer {
+    max-width: calc(100vw - var(--rail));
+  }
+
+  .settings-drawer-discard {
+    grid-template-columns: 1fr;
+  }
+
+  .settings-drawer-discard span {
+    grid-column: auto;
+  }
+
   .brand-copy {
     min-width: auto;
   }

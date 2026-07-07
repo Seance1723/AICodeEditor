@@ -209,20 +209,20 @@ Rule: every new modification must add or update relevant tasks here before or du
 - [x] Build shared status/risk badges.
 - [x] Build `InlineConfirm`.
 - [x] Add light-mode settings styles consistent with the editor shell.
+
 ## Module 14: Settings Drawer System
 
-- [ ] Build `SettingsDrawer`.
-- [ ] Support standard drawer width.
-- [ ] Support wide drawer width for table-heavy settings.
-- [ ] Add overlay click close.
-- [ ] Add Escape close.
-- [ ] Add close button behavior.
-- [ ] Focus the first field when drawer opens.
-- [ ] Return focus to the triggering row when drawer closes.
-- [ ] Add draft state and dirty tracking.
-- [ ] Add dirty drawer discard confirmation.
-- [ ] Add sticky Cancel and Save footer.
-
+- [x] Build `SettingsDrawer`.
+- [x] Support standard drawer width.
+- [x] Support wide drawer width for table-heavy settings.
+- [x] Add overlay click close.
+- [x] Add Escape close.
+- [x] Add close button behavior.
+- [x] Focus the first field when drawer opens.
+- [x] Return focus to the triggering row when drawer closes.
+- [x] Add draft state and dirty tracking.
+- [x] Add dirty drawer discard confirmation.
+- [x] Add sticky Cancel and Save footer.
 ## Module 15: General Settings
 
 - [ ] Build Appearance settings section.

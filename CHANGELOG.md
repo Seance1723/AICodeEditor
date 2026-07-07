@@ -6,6 +6,7 @@ All notable changes to the Tri Studio app and project documents will be recorded
 
 ### Added
 
+- Completed Module 14 Settings Drawer System with right slide-in `SettingsDrawer`, standard and wide drawer sizes, overlay/Escape/close-button close paths, first-field focus, focus return to the triggering row, draft state, dirty tracking, discard confirmation, sticky Cancel/Save footer, and drawer-save row wiring from Settings content.
 - Completed Module 13 Shared Settings Components with reusable Settings content, section header, cards, rows, toggle rows, segmented controls, number/text/select fields, status and risk badges, inline confirmation, and light-mode settings component styling.
 - Updated Settings workspace content to render selected section rows through the shared component primitives, including immediate-control previews, drawer-row previews, badges, and reset inline confirmation.
 - Completed Module 12 Settings Navigation and Search with centralized settings section data, grouped General/AI/Execution/Security/Workspace navigation, selected section state, settings search input, section filtering by group/label/description/row labels, empty search state, keyboard navigation, and selected-section preview content.
@@ -50,6 +51,7 @@ All notable changes to the Tri Studio app and project documents will be recorded
 
 ### Notes
 
+- Module 14 verification: `npm run build` passes.
 - Module 13 verification: `npm run build` passes.
 - Module 12 verification: `npm run build` passes.
 - Module 11 verification: `npm run build` passes.

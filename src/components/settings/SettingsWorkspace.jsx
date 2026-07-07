@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { ArrowLeft, ChevronRight, Search } from "lucide-react";
 import { filterSettingsGroups, flattenSettingsGroups, getSettingsSection } from "../../data/settingsSections.js";
 import InlineConfirm from "./InlineConfirm.jsx";
 import SegmentedControl from "./SegmentedControl.jsx";
 import SettingsCard from "./SettingsCard.jsx";
 import SettingsContent from "./SettingsContent.jsx";
+import SettingsDrawer from "./SettingsDrawer.jsx";
 import SettingsRow from "./SettingsRow.jsx";
 import SettingsSectionHeader from "./SettingsSectionHeader.jsx";
 import ToggleRow from "./ToggleRow.jsx";
@@ -26,6 +27,16 @@ const immediateRows = new Set([
   "Long-term memory",
 ]);
 
+const wideDrawerRows = new Set([
+  "Compatibility dashboard",
+  "Knowledge base",
+  "MCP servers",
+  "Plugin audit log",
+  "Token usage",
+  "Tool permissions",
+  "VS Code Marketplace",
+]);
+
 function getRowSummary(row) {
   if (row.includes("key") || row.includes("secret") || row.includes("Provider secret")) return "Stored securely";
   if (row.includes("permissions") || row.includes("Approval") || row.includes("MCP")) return "Approval gated";
@@ -40,9 +51,17 @@ function getRowBadges(row) {
   return <SettingsBadge>Requires Save</SettingsBadge>;
 }
 
+function getDrawerBadge(row) {
+  if (row.includes("key") || row.includes("secret") || row.includes("Provider secret")) return { label: "Stored securely", tone: "success" };
+  if (row.includes("permissions") || row.includes("Approval") || row.includes("MCP")) return { label: "Approval required", tone: "warning" };
+  return { label: "Requires Save", tone: "neutral" };
+}
+
 function SettingsWorkspace({ state, dispatch }) {
   const selectedSection = getSettingsSection(state.activeSettingsSection);
   const filteredSections = flattenSettingsGroups(filterSettingsGroups(state.settingsSearchQuery));
+  const drawerTriggerRef = useRef(null);
+  const [drawer, setDrawer] = useState(null);
   const [theme, setTheme] = useState("light");
   const [density, setDensity] = useState("default");
   const [fontSize, setFontSize] = useState(14);
@@ -57,8 +76,31 @@ function SettingsWorkspace({ state, dispatch }) {
   });
   const [roleModel, setRoleModel] = useState("frontend");
 
-  const openPlannedDrawer = (row) => {
-    dispatch({ type: "SHOW_TOAST", message: `${row} drawer arrives in Module 14.` });
+  const closeDrawer = () => {
+    setDrawer(null);
+    window.setTimeout(() => drawerTriggerRef.current?.focus(), 0);
+  };
+
+  const openDrawer = (row, event) => {
+    const badge = getDrawerBadge(row);
+    drawerTriggerRef.current = event.currentTarget;
+    setDrawer({
+      id: `${selectedSection.id}-${row}`,
+      title: row,
+      sectionLabel: `${selectedSection.groupLabel} / ${selectedSection.label}`,
+      description: `${row} settings for ${selectedSection.label}.`,
+      summary: getRowSummary(row),
+      size: wideDrawerRows.has(row) ? "wide" : "standard",
+      badgeLabel: badge.label,
+      riskTone: badge.tone,
+      defaultLimit: row.includes("Token") || row.includes("Cost") ? 8 : 4,
+      mode: row.includes("Approval") || row.includes("permissions") ? "approval" : "standard",
+    });
+  };
+
+  const saveDrawer = (draft) => {
+    dispatch({ type: "SHOW_TOAST", message: `${drawer.title} saved for this prototype.` });
+    return draft;
   };
 
   const renderRow = (row) => {
@@ -71,7 +113,6 @@ function SettingsWorkspace({ state, dispatch }) {
             onChange={setTheme}
             options={[
               { label: "Light", value: "light" },
-              { label: "Dark", value: "dark" },
               { label: "System", value: "system" },
             ]}
           />
@@ -158,7 +199,7 @@ function SettingsWorkspace({ state, dispatch }) {
         summary={getRowSummary(row)}
         badges={getRowBadges(row)}
         key={row}
-        onClick={() => openPlannedDrawer(row)}
+        onClick={(event) => openDrawer(row, event)}
       />
     );
   };
@@ -222,6 +263,7 @@ function SettingsWorkspace({ state, dispatch }) {
           </SettingsCard>
         </SettingsContent>
       </section>
+      {drawer ? <SettingsDrawer key={drawer.id} drawer={drawer} onClose={closeDrawer} onSave={saveDrawer} /> : null}
     </main>
   );
 }

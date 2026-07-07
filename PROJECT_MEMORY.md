@@ -88,7 +88,8 @@ Continue building the React/Vite frontend prototype for Tri Studio. The complete
 - Settings search filters by group label, section label, section description, and planned row labels.
 - Module 13 adds shared Settings UI primitives: `SettingsContent`, `SettingsSectionHeader`, `SettingsCard`, `SettingsRow`, `ToggleRow`, `SegmentedControl`, `SettingsFields`, `SettingsBadge`, `RiskBadge`, and `InlineConfirm`.
 - Settings rows now distinguish immediate controls, drawer-save rows, secure rows, and approval-gated rows through shared badges and row structure.
-## Core Architecture Decisions
+- Module 14 adds the Settings drawer system with `SettingsDrawer`, standard/wide sizes, overlay/Escape/X close, first-field focus, focus return to triggering rows, draft state, dirty tracking, discard confirmation, and sticky Cancel/Save footer.
+- Drawer-save rows in Settings content now open the drawer; table-heavy rows such as Tool permissions, Token usage, Knowledge base, Compatibility dashboard, and MCP servers use the wide drawer size.## Core Architecture Decisions
 
 - `App.jsx` now owns prototype state with `useReducer` and passes state/actions into shell components.
 - Shell components live under `src/components/shell`; shared toast lives under `src/components/common`.
@@ -166,5 +167,6 @@ Before or during every implementation change:
 - Module 11 Settings Shell Integration is complete and `npm run build` passes.
 - Module 12 Settings Navigation and Search is complete and `npm run build` passes.
 - Module 13 Shared Settings Components is complete and `npm run build` passes.
+- Module 14 Settings Drawer System is complete and `npm run build` passes.
 - In this sandbox, `npm run dev` may require elevated execution because Vite startup can hit a dependency spawn `EPERM`.
 
