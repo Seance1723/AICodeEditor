@@ -6,6 +6,7 @@ import Workspace from "./components/shell/Workspace.jsx";
 import AgentDock from "./components/shell/AgentDock.jsx";
 import StatusBar from "./components/shell/StatusBar.jsx";
 import Toast from "./components/common/Toast.jsx";
+import AgentManagerModal from "./components/agents/AgentManagerModal.jsx";
 import { createInitialEditorValues, getMockFile, mockFiles } from "./data/mockFiles.js";
 import { initialChatMessages } from "./data/mockMessages.js";
 
@@ -71,6 +72,10 @@ function reducer(state, action) {
       return { ...state, activeDockTab: action.tab };
     case "SET_BOTTOM_TAB":
       return { ...state, activeBottomTab: action.tab };
+    case "OPEN_AGENT_MODAL":
+      return { ...state, agentModalOpen: true };
+    case "CLOSE_AGENT_MODAL":
+      return { ...state, agentModalOpen: false };
     case "SET_WORKSPACE":
       return {
         ...state,
@@ -194,6 +199,7 @@ function App() {
       <Workspace state={state} dispatch={dispatch} />
       {state.currentView === "code" ? <AgentDock state={state} dispatch={dispatch} /> : null}
       <StatusBar state={state} />
+      {state.agentModalOpen ? <AgentManagerModal dispatch={dispatch} /> : null}
       <Toast toast={state.toast} />
     </div>
   );

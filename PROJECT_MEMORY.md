@@ -78,6 +78,7 @@ Prepare and then build a React/Vite frontend prototype for Tri Studio. The proto
 - Uploaded/local files are represented as metadata and in-memory editor values only.
 - Dirty file state is tracked in app state, not written to disk.
 - Agent actions are simulated through timed logs and UI state.
+- Module 7 implements compact Agent Dock tabs and a deeper `AgentManagerModal`; all actions remain simulated and do not execute real tools.
 - Preview is mocked until real dev-server/iframe integration is approved.
 
 ## Documentation Workflow
@@ -122,5 +123,6 @@ Before or during every implementation change:
 - Module 4 Chat Mode is complete with sessions, upload metadata, seeded messages, message sending, empty-message validation, and the `No preview in Chat` card.
 - Module 5 Code Side Panel is complete with `CodeSidePanel`, `ProjectActions`, `FileTree`, `ChangedFilesList`, Create Project simulation, folder selection, code uploads, and dirty-file display.
 - Module 6 Code Workspace is complete with header, branch label, current task strip, View Plan, Run Agents simulation, inline agent prompt, inline preview, and bottom panel tabs.
+- Module 7 Agent Dock and Agent Manager is complete with reusable agent cards, dock Tasks/Chat/Tools views, progress bars, tool shortcuts, and modal close via button/backdrop.
 - In this sandbox, `npm run dev` may require elevated execution because Vite startup can hit a dependency spawn `EPERM`.
 

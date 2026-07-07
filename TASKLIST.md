@@ -112,17 +112,17 @@ Rule: every new modification must add or update relevant tasks here before or du
 
 ## Module 7: Agent Dock and Agent Manager
 
-- [ ] Build `AgentCard`.
-- [ ] Build `AgentDockTasks`.
-- [ ] Build `AgentDockChat`.
-- [ ] Build `AgentDockTools`.
-- [ ] Build `AgentManagerModal`.
-- [ ] Add Tasks, Chat, and Tools dock tabs.
-- [ ] Add compact agent cards.
-- [ ] Add progress bars.
-- [ ] Open Agent Manager from top bar pill.
-- [ ] Close Agent Manager from close button.
-- [ ] Close Agent Manager from backdrop.
+- [x] Build `AgentCard`.
+- [x] Build `AgentDockTasks`.
+- [x] Build `AgentDockChat`.
+- [x] Build `AgentDockTools`.
+- [x] Build `AgentManagerModal`.
+- [x] Add Tasks, Chat, and Tools dock tabs.
+- [x] Add compact agent cards.
+- [x] Add progress bars.
+- [x] Open Agent Manager from top bar pill.
+- [x] Close Agent Manager from close button.
+- [x] Close Agent Manager from backdrop.
 
 ## Module 8: Preview Mode
 

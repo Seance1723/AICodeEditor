@@ -34,7 +34,7 @@ function TopBar({ state, dispatch }) {
       <button
         className="status-pill"
         type="button"
-        onClick={() => dispatch({ type: "SHOW_TOAST", message: "Agent Manager arrives in Module 7." })}
+        onClick={() => dispatch({ type: "OPEN_AGENT_MODAL" })}
       >
         <Bot size={16} />
         <span>3 agents running</span>

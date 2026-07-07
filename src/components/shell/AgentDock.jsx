@@ -1,4 +1,7 @@
 import { Bot, MessageSquare, Wrench } from "lucide-react";
+import AgentDockChat from "../agents/AgentDockChat.jsx";
+import AgentDockTasks from "../agents/AgentDockTasks.jsx";
+import AgentDockTools from "../agents/AgentDockTools.jsx";
 
 const dockTabs = [
   { id: "tasks", label: "Tasks", icon: Bot },
@@ -10,8 +13,13 @@ function AgentDock({ state, dispatch }) {
   return (
     <aside className="agent-dock">
       <div className="dock-header">
-        <p className="panel-label">Agent Dock</p>
-        <h2>Calm agent summary</h2>
+        <div>
+          <p className="panel-label">Agent Dock</p>
+          <h2>Calm agent summary</h2>
+        </div>
+        <button className="quiet-action quiet-action--compact" type="button" onClick={() => dispatch({ type: "OPEN_AGENT_MODAL" })}>
+          Manage
+        </button>
       </div>
       <div className="segmented-tabs" role="tablist" aria-label="Agent dock tabs">
         {dockTabs.map(({ id, label, icon: Icon }) => (
@@ -28,15 +36,9 @@ function AgentDock({ state, dispatch }) {
         ))}
       </div>
       <div className="panel-stack">
-        {state.activeDockTab === "tasks" ? (
-          <>
-            <div className="agent-summary"><strong>UI Builder</strong><span>Coding shell layout</span></div>
-            <div className="agent-summary"><strong>QA Tester</strong><span>Waiting for Module 2 build</span></div>
-            <div className="agent-summary"><strong>Security Review</strong><span>Approval model pending</span></div>
-          </>
-        ) : null}
-        {state.activeDockTab === "chat" ? <div className="empty-line">Agent conversation arrives in Module 7.</div> : null}
-        {state.activeDockTab === "tools" ? <div className="empty-line">Tool shortcuts arrive in Module 7.</div> : null}
+        {state.activeDockTab === "tasks" ? <AgentDockTasks dispatch={dispatch} /> : null}
+        {state.activeDockTab === "chat" ? <AgentDockChat dispatch={dispatch} /> : null}
+        {state.activeDockTab === "tools" ? <AgentDockTools dispatch={dispatch} /> : null}
       </div>
     </aside>
   );
