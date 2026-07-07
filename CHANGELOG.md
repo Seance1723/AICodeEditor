@@ -6,6 +6,7 @@ All notable changes to the Tri Studio app and project documents will be recorded
 
 ### Added
 
+- Completed Module 10 QA and Build Verification using production build, local HTTP check, source hygiene scans, and static workflow coverage checks for Chat, Code, Monaco, uploads, preview toggle, agent simulation, bottom tabs, Agent Dock, Agent Manager, and Preview device switching.
 - Completed Module 9 Styling and Responsive Behavior with stable shell grids, Monaco/container sizing polish, focus-visible states, hover/active consistency, empty-state polish, scroll behavior, and responsive side-panel/dock collapse rules.
 - Added responsive breakpoints for desktop, medium, tablet, and narrow mobile layouts across Chat, Code, Preview, Agent Dock, modals, bottom panel, and Monaco editor areas.
 - Completed Module 8 Preview Mode with `PreviewSidePanel` and `PreviewWorkspace` components.
@@ -42,6 +43,8 @@ All notable changes to the Tri Studio app and project documents will be recorded
 
 ### Notes
 
+- Module 10 verification: `npm run build` passes, local dev server returned HTTP 200, source scans found no `console.*`, `debugger`, inline SVG, emoji, or dark-mode markers in `src`, and static workflow checks passed.
+- Module 10 limitation: browser-console inspection could not be completed because the in-app browser surface reported `Browser is not available: iab`.
 - Module 9 verification: `npm run build` passes, local dev server returned HTTP 200, and source scans found no inline SVG/emoji or dark-mode markers in `src`.
 - Module 8 verification: `npm run build` passes.
 - Module 7 verification: `npm run build` passes.

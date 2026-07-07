@@ -154,23 +154,23 @@ Rule: every new modification must add or update relevant tasks here before or du
 
 ## Module 10: QA and Build Verification
 
-- [ ] Run production build.
-- [ ] Test Chat mode default load.
-- [ ] Test Chat message sending.
-- [ ] Test Chat uploads.
-- [ ] Test Code mode layout.
-- [ ] Test Monaco file switching.
-- [ ] Test Monaco editing and dirty state.
-- [ ] Test folder picker.
-- [ ] Test code uploads.
-- [ ] Test inline preview toggle.
-- [ ] Test Run Agents log simulation.
-- [ ] Test bottom panel tabs.
-- [ ] Test Agent Dock tabs.
-- [ ] Test Agent Manager modal.
-- [ ] Test Preview mode device switching.
-- [ ] Check browser console for errors.
-- [ ] Update changelog with QA result.
+- [x] Run production build.
+- [x] Test Chat mode default load.
+- [x] Test Chat message sending.
+- [x] Test Chat uploads.
+- [x] Test Code mode layout.
+- [x] Test Monaco file switching.
+- [x] Test Monaco editing and dirty state.
+- [x] Test folder picker.
+- [x] Test code uploads.
+- [x] Test inline preview toggle.
+- [x] Test Run Agents log simulation.
+- [x] Test bottom panel tabs.
+- [x] Test Agent Dock tabs.
+- [x] Test Agent Manager modal.
+- [x] Test Preview mode device switching.
+- [!] Check browser console for errors. Blocked: in-app browser surface is unavailable in this session (`Browser is not available: iab`).
+- [x] Update changelog with QA result.
 
 ## Later Enhancements
 

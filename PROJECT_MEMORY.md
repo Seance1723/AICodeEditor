@@ -128,5 +128,6 @@ Before or during every implementation change:
 - Module 7 Agent Dock and Agent Manager is complete with reusable agent cards, dock Tasks/Chat/Tools views, progress bars, tool shortcuts, and modal close via button/backdrop.
 - Module 8 Preview Mode is complete with dedicated side panel/workspace, device switching, refresh action, full mock browser preview, and preserved hiding of code editor/Agent Dock.
 - Module 9 Styling and Responsive Behavior is complete with responsive shell grids, focus-visible states, stable Monaco sizing, side-panel/dock collapse rules, no inline SVG/emoji usage, and no dark-mode markers in source styles.
+- Module 10 QA and Build Verification is complete except browser-console inspection, which is blocked because the in-app browser surface is unavailable in this session. Production build, local HTTP, source hygiene, and static workflow coverage checks pass.
 - In this sandbox, `npm run dev` may require elevated execution because Vite startup can hit a dependency spawn `EPERM`.
 
