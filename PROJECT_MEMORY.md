@@ -49,6 +49,9 @@ Prepare and then build a React/Vite frontend prototype for Tri Studio. The proto
 - Used for project/file selection, Monaco editing, inline preview, bottom panel, and simulated agents.
 - Must show Agent Dock.
 - Must support optional inline preview.
+- Module 5 implements the Code side panel with project actions, folder picker, code upload metadata, mock file tree, agent mini-list, and changed files list.
+- Local folder selection infers the workspace name from the first selected file `webkitRelativePath`.
+- Code uploads are stored as metadata in `codeUploads`; they do not read or write file contents.
 
 ### Preview
 
@@ -114,5 +117,6 @@ Before or during every implementation change:
 - Module 2 editor shell is complete with mode switching, conditional Agent Dock, side-panel switching, status bar, and toast feedback.
 - Module 3 Monaco Editor Core is complete with file tabs, Monaco editing, language mapping, custom light theme, reducer-backed editor values, and dirty state.
 - Module 4 Chat Mode is complete with sessions, upload metadata, seeded messages, message sending, empty-message validation, and the `No preview in Chat` card.
+- Module 5 Code Side Panel is complete with `CodeSidePanel`, `ProjectActions`, `FileTree`, `ChangedFilesList`, Create Project simulation, folder selection, code uploads, and dirty-file display.
 - In this sandbox, `npm run dev` may require elevated execution because Vite startup can hit a dependency spawn `EPERM`.
 

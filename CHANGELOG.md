@@ -6,6 +6,9 @@ All notable changes to the Tri Studio app and project documents will be recorded
 
 ### Added
 
+- Completed Module 5 Code Side Panel and Workspace Files with `CodeSidePanel`, `ProjectActions`, `FileTree`, and `ChangedFilesList` components.
+- Added Create Project simulation, local folder selection with `webkitdirectory`, folder-name inference, code upload metadata handling, uploaded code file rendering, and dirty-file change listing.
+- Added workspace and terminal-log reducer actions for project creation, folder selection, and code upload events.
 - Completed Module 4 Chat Mode with `ChatSidePanel`, `ChatWorkspace`, `ChatThread`, `ChatComposer`, and shared `UploadList` components.
 - Added mock chat sessions/messages and reducer-backed chat uploads, composer attachments, message sending, and empty-message validation toast.
 - Added file upload utilities for converting selected `FileList` values into prototype upload metadata.
@@ -30,6 +33,7 @@ All notable changes to the Tri Studio app and project documents will be recorded
 
 ### Notes
 
+- Module 5 verification: `npm run build` passes and local dev server returned HTTP 200.
 - Module 4 verification: `npm run build` passes and local dev server returned HTTP 200.
 - In-app browser smoke testing was unavailable because the browser surface reported `Browser is not available: iab`.
 - Module 3 verification: `npm run build` passes and local dev server returned HTTP 200.

@@ -83,18 +83,18 @@ Rule: every new modification must add or update relevant tasks here before or du
 
 ## Module 5: Code Side Panel and Workspace Files
 
-- [ ] Build `CodeSidePanel`.
-- [ ] Build `ProjectActions`.
-- [ ] Build `FileTree`.
-- [ ] Build `ChangedFilesList`.
-- [ ] Add Create Project simulation.
-- [ ] Add local folder picker using `webkitdirectory`.
-- [ ] Infer workspace name from selected folder.
-- [ ] Add code upload handling.
-- [ ] Add Files, Agents, and Changes side tabs.
-- [ ] Wire file tree selection to Monaco.
-- [ ] Show uploaded code files.
-- [ ] Show dirty/changed files.
+- [x] Build `CodeSidePanel`.
+- [x] Build `ProjectActions`.
+- [x] Build `FileTree`.
+- [x] Build `ChangedFilesList`.
+- [x] Add Create Project simulation.
+- [x] Add local folder picker using `webkitdirectory`.
+- [x] Infer workspace name from selected folder.
+- [x] Add code upload handling.
+- [x] Add Files, Agents, and Changes side tabs.
+- [x] Wire file tree selection to Monaco.
+- [x] Show uploaded code files.
+- [x] Show dirty/changed files.
 
 ## Module 6: Code Workspace and Preview
 

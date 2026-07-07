@@ -683,3 +683,80 @@
   border-color: var(--primary-2);
   background: var(--surface);
 }
+.project-actions {
+  display: grid;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.file-action {
+  position: relative;
+  cursor: pointer;
+}
+
+.file-action input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.file-tree {
+  display: grid;
+  gap: 8px;
+}
+
+.file-tree-root,
+.file-tree-item {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-width: 0;
+  border-radius: var(--radius);
+}
+
+.file-tree-root {
+  padding: 9px 10px;
+  color: var(--text);
+  font-weight: 700;
+  background: var(--surface-3);
+}
+
+.file-tree-root span,
+.file-tree-item span,
+.changed-files-list span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.file-tree-list,
+.changed-files-list {
+  display: grid;
+  gap: 6px;
+}
+
+.file-tree-item {
+  width: 100%;
+  min-height: 36px;
+  padding: 0 10px 0 18px;
+  border: 1px solid var(--line);
+  color: var(--muted);
+  text-align: left;
+  background: var(--surface);
+}
+
+.file-tree-item:hover,
+.file-tree-item.is-active {
+  color: var(--primary);
+  border-color: var(--line-2);
+  background: var(--surface-3);
+}
+
+.code-side-panel > p:not(.panel-label) {
+  min-height: 20px;
+  margin-top: -4px;
+  font-size: 13px;
+}

@@ -41,6 +41,15 @@ function removeItem(items, item) {
   return items.filter((value) => value !== item);
 }
 
+function createTerminalLog(message, type = "default") {
+  return {
+    id: `log-${Date.now()}`,
+    time: new Intl.DateTimeFormat("en", { hour: "2-digit", minute: "2-digit", second: "2-digit" }).format(new Date()),
+    message,
+    type,
+  };
+}
+
 function reducer(state, action) {
   switch (action.type) {
     case "SET_VIEW":
@@ -60,6 +69,22 @@ function reducer(state, action) {
       return { ...state, activeSideTab: action.tab };
     case "SET_DOCK_TAB":
       return { ...state, activeDockTab: action.tab };
+    case "SET_WORKSPACE":
+      return {
+        ...state,
+        workspaceName: action.name,
+        workspaceStatus: action.status,
+        terminalLogs: [...state.terminalLogs, createTerminalLog(action.status, "success")],
+        toast: { id: Date.now(), message: action.status },
+      };
+    case "CREATE_PROJECT":
+      return {
+        ...state,
+        workspaceName: state.projectTitle,
+        workspaceStatus: `Project created: ${state.projectTitle}`,
+        terminalLogs: [...state.terminalLogs, createTerminalLog(`Project created: ${state.projectTitle}`, "success")],
+        toast: { id: Date.now(), message: `Project created: ${state.projectTitle}` },
+      };
     case "OPEN_FILE":
       return {
         ...state,
@@ -113,6 +138,14 @@ function reducer(state, action) {
             time: new Intl.DateTimeFormat("en", { hour: "2-digit", minute: "2-digit" }).format(new Date()),
           },
         ],
+      };
+    case "ADD_CODE_UPLOADS":
+      return {
+        ...state,
+        codeUploads: [...state.codeUploads, ...action.uploads],
+        workspaceStatus: `${action.uploads.length} code file${action.uploads.length === 1 ? "" : "s"} selected for prototype workspace`,
+        terminalLogs: [...state.terminalLogs, createTerminalLog(`${action.uploads.length} code file${action.uploads.length === 1 ? "" : "s"} uploaded to code context.`, "success")],
+        toast: { id: Date.now(), message: `${action.uploads.length} code file${action.uploads.length === 1 ? "" : "s"} selected.` },
       };
     case "TOGGLE_PREVIEW":
       return { ...state, previewHidden: !state.previewHidden };
