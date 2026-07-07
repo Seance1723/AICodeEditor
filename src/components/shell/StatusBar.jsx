@@ -1,9 +1,13 @@
 function StatusBar({ state }) {
+  const viewLabel = state.currentView === "settings" ? "Settings" : state.currentView;
+  const workspaceStatus = state.currentView === "settings" ? "Settings open" : state.workspaceStatus;
+  const syncStatus = state.currentView === "settings" ? "Config synced" : "Monaco ready";
+
   return (
     <footer className="status-bar">
-      <span>{state.workspaceStatus}</span>
-      <span>View: {state.currentView}</span>
-      <span>Monaco base planned</span>
+      <span>{workspaceStatus}</span>
+      <span>View: {viewLabel}</span>
+      <span>{syncStatus}</span>
       <span>Safe approval</span>
     </footer>
   );

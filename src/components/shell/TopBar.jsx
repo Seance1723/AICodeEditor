@@ -48,10 +48,11 @@ function TopBar({ state, dispatch }) {
         <span>Safe approval</span>
       </button>
       <button
-        className="icon-button"
+        className={state.currentView === "settings" ? "icon-button is-active" : "icon-button"}
         type="button"
         aria-label="Settings"
-        onClick={() => dispatch({ type: "SHOW_TOAST", message: "Settings will be added after the core prototype." })}
+        title="Settings"
+        onClick={() => dispatch({ type: "OPEN_SETTINGS" })}
       >
         <Settings size={18} />
       </button>

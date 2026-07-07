@@ -12,6 +12,7 @@ import { initialChatMessages } from "./data/mockMessages.js";
 
 const initialState = {
   currentView: "chat",
+  previousMainView: "chat",
   activeRail: "files",
   activeSideTab: "files",
   activeDockTab: "tasks",
@@ -42,6 +43,13 @@ function removeItem(items, item) {
   return items.filter((value) => value !== item);
 }
 
+function getSideTabForRail(rail, fallback = "files") {
+  if (rail === "agents" || rail === "tools") return "agents";
+  if (rail === "git") return "changes";
+  if (rail === "files" || rail === "search") return "files";
+  return fallback;
+}
+
 function createTerminalLog(message, type = "default") {
   return {
     id: `log-${Date.now()}`,
@@ -53,19 +61,44 @@ function createTerminalLog(message, type = "default") {
 
 function reducer(state, action) {
   switch (action.type) {
-    case "SET_VIEW":
+    case "SET_VIEW": {
+      const nextActiveRail = action.view === "code" ? (state.activeRail === "settings" ? "files" : state.activeRail) : "files";
       return {
         ...state,
         currentView: action.view,
-        activeRail: action.view === "code" ? state.activeRail : "files",
+        previousMainView: action.view,
+        activeRail: nextActiveRail,
+        activeSideTab: action.view === "code" ? getSideTabForRail(nextActiveRail, state.activeSideTab) : state.activeSideTab,
         toast: action.view === "chat" ? { id: Date.now(), message: "Chat mode keeps preview hidden." } : null,
       };
-    case "SET_RAIL":
+    }
+    case "OPEN_SETTINGS":
+      return {
+        ...state,
+        currentView: "settings",
+        previousMainView: state.currentView === "settings" ? state.previousMainView : state.currentView,
+        activeRail: "settings",
+        toast: { id: Date.now(), message: "Settings opened in the main workspace." },
+      };
+    case "SET_RAIL": {
+      const activeSideTab = getSideTabForRail(action.rail, state.activeSideTab);
+      if (state.currentView === "settings") {
+        return {
+          ...state,
+          currentView: "code",
+          previousMainView: "code",
+          activeRail: action.rail,
+          activeSideTab,
+          toast: { id: Date.now(), message: `${action.label ?? "Workspace"} opened in Code mode.` },
+        };
+      }
+
       return {
         ...state,
         activeRail: action.rail,
-        activeSideTab: action.rail === "agents" ? "agents" : action.rail === "git" ? "changes" : state.activeSideTab,
+        activeSideTab,
       };
+    }
     case "SET_SIDE_TAB":
       return { ...state, activeSideTab: action.tab };
     case "SET_DOCK_TAB":
@@ -105,6 +138,8 @@ function reducer(state, action) {
         selectedFileId: action.fileId,
         openFileIds: addUnique(state.openFileIds, action.fileId),
         currentView: "code",
+        previousMainView: "code",
+        activeRail: state.activeRail === "settings" ? "files" : state.activeRail,
       };
     case "SET_SELECTED_FILE":
       return {

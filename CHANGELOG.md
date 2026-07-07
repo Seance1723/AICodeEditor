@@ -6,6 +6,7 @@ All notable changes to the Tri Studio app and project documents will be recorded
 
 ### Added
 
+- Completed Module 11 Settings Shell Integration with `settings` app state, previous main-view tracking, activity rail and topbar Settings entry points, full-page Settings workspace rendering, Settings side navigation placeholder, hidden Agent Dock in Settings, Settings-aware status bar text, and Code-mode rail restoration from Settings.
 - Analyzed the Settings layout plan and extended the implementation roadmap with Modules 11-19 for Settings shell integration, navigation/search, shared components, drawer behavior, General settings, AI settings, Execution settings, Security/Workspace settings, and Settings QA.
 - Added detailed Settings tasks to `TASKLIST.md` covering full-page system workspace behavior, mock settings state, immediate-save controls, drawer-save flows, write-only secrets, extension/MCP mock UI, accessibility, and responsive verification.
 - Updated project memory with the Settings source plan, durable Settings placement rules, drawer rules, save behavior, and secret-handling constraints.
@@ -46,6 +47,7 @@ All notable changes to the Tri Studio app and project documents will be recorded
 
 ### Notes
 
+- Module 11 verification: `npm run build` passes.
 - Settings roadmap source: `C:\Users\Tanvi\Downloads\tri-studio-settings-layout-plan.md`. This documentation-only update did not require a production build.
 - Module 10 verification: `npm run build` passes, local dev server returned HTTP 200, source scans found no `console.*`, `debugger`, inline SVG, emoji, or dark-mode markers in `src`, and static workflow checks passed.
 - Module 10 limitation: browser-console inspection could not be completed because the in-app browser surface reported `Browser is not available: iab`.

@@ -82,7 +82,8 @@ Continue building the React/Vite frontend prototype for Tri Studio. The complete
 - Navigation groups are General, AI, Execution, Security, and Workspace.
 - Sections are Appearance, Editor, Privacy, Model Providers, Agents, Tasks & Execution, Tools & Memory, Secrets & Privacy, Extensions, and Onboarding.
 - Settings state is prototype/mock state in the next modules; real persistence and OS keychain integration are later enhancements.
-
+- Module 11 implements Settings shell integration with `currentView: "settings"`, `previousMainView`, gear/topbar entry points, hidden Agent Dock, SettingsSidebar placeholder, SettingsWorkspace placeholder, and Settings status bar copy.
+- While Settings is open, clicking Files, Search, Git, Agents, or Tools in the activity rail returns to Code mode and activates the matching rail/sidebar state.
 ## Core Architecture Decisions
 
 - `App.jsx` now owns prototype state with `useReducer` and passes state/actions into shell components.
@@ -158,5 +159,6 @@ Before or during every implementation change:
 - Module 9 Styling and Responsive Behavior is complete with responsive shell grids, focus-visible states, stable Monaco sizing, side-panel/dock collapse rules, no inline SVG/emoji usage, and no dark-mode markers in source styles.
 - Module 10 QA and Build Verification is complete except browser-console inspection, which is blocked because the in-app browser surface is unavailable in this session. Production build, local HTTP, source hygiene, and static workflow coverage checks pass.
 - Settings layout planning is complete: Modules 11-19 now cover Settings shell integration, navigation/search, shared settings components, drawer system, General settings, AI settings, Execution settings, Security/Workspace settings, and Settings QA.
+- Module 11 Settings Shell Integration is complete and `npm run build` passes.
 - In this sandbox, `npm run dev` may require elevated execution because Vite startup can hit a dependency spawn `EPERM`.
 

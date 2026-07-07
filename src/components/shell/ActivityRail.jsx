@@ -10,12 +10,17 @@ const railItems = [
 
 function ActivityRail({ state, dispatch }) {
   const handleClick = (item) => {
+    if (state.currentView === "settings") {
+      dispatch({ type: "SET_RAIL", rail: item.id, label: item.label });
+      return;
+    }
+
     if (state.currentView !== "code") {
       dispatch({ type: "SHOW_TOAST", message: `${item.label} opens from Code mode.` });
       return;
     }
 
-    dispatch({ type: "SET_RAIL", rail: item.id });
+    dispatch({ type: "SET_RAIL", rail: item.id, label: item.label });
   };
 
   return (
@@ -25,7 +30,7 @@ function ActivityRail({ state, dispatch }) {
           const Icon = item.icon;
           return (
             <button
-              className={item.id === state.activeRail ? "is-active" : ""}
+              className={item.id === state.activeRail && state.currentView !== "settings" ? "is-active" : ""}
               type="button"
               aria-label={item.label}
               title={item.label}
@@ -38,11 +43,11 @@ function ActivityRail({ state, dispatch }) {
         })}
       </div>
       <button
-        className="rail-account"
+        className={state.currentView === "settings" ? "rail-account is-active" : "rail-account"}
         type="button"
-        aria-label="Account and settings"
-        title="Account and settings"
-        onClick={() => dispatch({ type: "SHOW_TOAST", message: "Account settings are planned for a later module." })}
+        aria-label="Settings"
+        title="Settings"
+        onClick={() => dispatch({ type: "OPEN_SETTINGS" })}
       >
         <Settings size={20} />
       </button>

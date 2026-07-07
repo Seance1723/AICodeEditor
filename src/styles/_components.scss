@@ -1357,3 +1357,112 @@ button:disabled,
 .toast {
   overflow-wrap: anywhere;
 }
+/* Module 11 settings shell */
+.icon-button.is-active,
+.rail-account.is-active {
+  color: var(--primary);
+  border-color: var(--line-2);
+  background: var(--surface-3);
+}
+
+.settings-sidebar-note {
+  display: grid;
+  gap: 3px;
+  margin-top: 16px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.settings-sidebar-note span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.settings-sidebar-note strong {
+  color: var(--text);
+  text-transform: capitalize;
+}
+
+.settings-nav-preview {
+  display: grid;
+  gap: 18px;
+  margin-top: 20px;
+}
+
+.workspace-panel--settings {
+  align-items: stretch;
+}
+
+.settings-workspace {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  min-width: 0;
+  min-height: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.settings-workspace-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 22px;
+  border-bottom: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.settings-workspace-header h2 {
+  margin: 0 0 8px;
+  color: var(--text);
+  font-size: 28px;
+  line-height: 1.15;
+}
+
+.settings-workspace-header p:not(.panel-label) {
+  max-width: 660px;
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.settings-shell-preview {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  align-content: start;
+  min-height: 0;
+  padding: 22px;
+  overflow: auto;
+  background: var(--bg);
+}
+
+.settings-shell-preview article {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+  min-width: 0;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--primary);
+  background: var(--surface);
+}
+
+.settings-shell-preview strong {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--text);
+}
+
+.settings-shell-preview span {
+  display: block;
+  color: var(--muted);
+  line-height: 1.45;
+}

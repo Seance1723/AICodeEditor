@@ -1,6 +1,7 @@
 import ChatWorkspace from "../chat/ChatWorkspace.jsx";
 import CodeWorkspace from "../code/CodeWorkspace.jsx";
 import PreviewWorkspace from "../preview/PreviewWorkspace.jsx";
+import SettingsWorkspace from "../settings/SettingsWorkspace.jsx";
 
 function Workspace({ state, dispatch }) {
   if (state.currentView === "chat") {
@@ -9,6 +10,10 @@ function Workspace({ state, dispatch }) {
 
   if (state.currentView === "preview") {
     return <PreviewWorkspace state={state} dispatch={dispatch} />;
+  }
+
+  if (state.currentView === "settings") {
+    return <SettingsWorkspace state={state} dispatch={dispatch} />;
   }
 
   return <CodeWorkspace state={state} dispatch={dispatch} />;

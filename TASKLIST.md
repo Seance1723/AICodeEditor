@@ -175,16 +175,15 @@ Rule: every new modification must add or update relevant tasks here before or du
 
 ## Module 11: Settings Shell Integration
 
-- [ ] Add `settings` to app view state.
-- [ ] Track `previousMainView` for Chat, Code, and Preview return behavior.
-- [ ] Wire the activity rail gear to open Settings.
-- [ ] Make the gear active while Settings is open.
-- [ ] Hide Agent Dock while Settings is open.
-- [ ] Replace the normal side panel with settings navigation in Settings view.
-- [ ] Render Settings full-page in the main workspace area.
-- [ ] Ensure Chat, Code, and Preview top switcher actions exit Settings.
-- [ ] Add Settings-specific status bar text.
-
+- [x] Add `settings` to app view state.
+- [x] Track `previousMainView` for Chat, Code, and Preview return behavior.
+- [x] Wire the activity rail gear to open Settings.
+- [x] Make the gear active while Settings is open.
+- [x] Hide Agent Dock while Settings is open.
+- [x] Replace the normal side panel with settings navigation in Settings view.
+- [x] Render Settings full-page in the main workspace area.
+- [x] Ensure Chat, Code, and Preview top switcher actions exit Settings.
+- [x] Add Settings-specific status bar text.
 ## Module 12: Settings Navigation and Search
 
 - [ ] Create centralized settings section data.
