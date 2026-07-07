@@ -1025,3 +1025,228 @@
   border-radius: var(--radius);
   background: var(--surface);
 }
+.preview-device-list {
+  display: grid;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.preview-device,
+.preview-refresh-action {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  width: 100%;
+  min-height: 38px;
+  padding: 0 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--muted);
+  text-align: left;
+  background: var(--surface);
+}
+
+.preview-device:hover,
+.preview-device.is-active,
+.preview-refresh-action:hover {
+  color: var(--primary);
+  border-color: var(--line-2);
+  background: var(--surface-3);
+}
+
+.preview-refresh-action {
+  justify-content: center;
+  margin-top: 12px;
+}
+
+.preview-settings-list .mini-list-item {
+  background: var(--surface);
+}
+
+.full-preview-panel {
+  place-items: stretch;
+}
+
+.preview-workspace {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  min-width: 0;
+  min-height: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.preview-workspace-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px;
+  border-bottom: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.preview-workspace-header h2 {
+  margin: 0 0 6px;
+  color: var(--text);
+  font-size: 28px;
+  line-height: 1.15;
+}
+
+.preview-device-frame {
+  display: grid;
+  place-items: center;
+  min-width: 0;
+  min-height: 0;
+  padding: 24px;
+  overflow: auto;
+  background: var(--bg);
+}
+
+.preview-browser {
+  display: grid;
+  grid-template-rows: 42px minmax(0, 1fr);
+  width: 100%;
+  min-height: 0;
+  border: 1px solid var(--line-2);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.preview-device-frame--desktop .preview-browser {
+  max-width: 1120px;
+  height: min(620px, 100%);
+}
+
+.preview-device-frame--tablet .preview-browser {
+  max-width: 760px;
+  height: min(680px, 100%);
+}
+
+.preview-device-frame--mobile .preview-browser {
+  max-width: 390px;
+  height: min(720px, 100%);
+}
+
+.preview-browser-bar {
+  display: grid;
+  grid-template-columns: repeat(3, 10px) minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 9px;
+  padding: 0 14px;
+  border-bottom: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.preview-browser-bar span {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--line-2);
+}
+
+.preview-browser-bar p {
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  color: var(--muted);
+  font-size: 13px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.preview-browser-body-full {
+  min-height: 0;
+  overflow: auto;
+  background: var(--surface-2);
+}
+
+.preview-product-shell {
+  min-height: 100%;
+  background: var(--surface);
+}
+
+.preview-product-shell nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--line);
+}
+
+.preview-product-shell nav strong {
+  color: var(--text);
+}
+
+.preview-product-shell nav div {
+  display: flex;
+  gap: 8px;
+}
+
+.preview-product-shell nav span {
+  width: 42px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--line);
+}
+
+.preview-product-shell main {
+  display: grid;
+  align-content: center;
+  gap: 18px;
+  min-height: 460px;
+  padding: 42px;
+}
+
+.preview-product-shell h3 {
+  max-width: 680px;
+  margin: 0;
+  color: var(--text);
+  font-size: 42px;
+  line-height: 1.08;
+}
+
+.preview-grid-mock {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 8px;
+}
+
+.preview-grid-mock article {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-2);
+}
+
+.preview-grid-mock strong {
+  color: var(--text);
+}
+
+.preview-grid-mock span {
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.preview-device-frame--mobile .preview-product-shell main {
+  padding: 26px;
+}
+
+.preview-device-frame--mobile .preview-product-shell h3 {
+  font-size: 28px;
+}
+
+.preview-device-frame--mobile .preview-grid-mock,
+.preview-device-frame--tablet .preview-grid-mock {
+  grid-template-columns: 1fr;
+}

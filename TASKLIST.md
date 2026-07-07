@@ -126,15 +126,15 @@ Rule: every new modification must add or update relevant tasks here before or du
 
 ## Module 8: Preview Mode
 
-- [ ] Build `PreviewSidePanel`.
-- [ ] Build `PreviewWorkspace`.
-- [ ] Add Desktop device state.
-- [ ] Add Tablet device state.
-- [ ] Add Mobile device state.
-- [ ] Add Refresh Preview action.
-- [ ] Add full browser preview mockup.
-- [ ] Hide code editor in Preview mode.
-- [ ] Hide Agent Dock in Preview mode.
+- [x] Build `PreviewSidePanel`.
+- [x] Build `PreviewWorkspace`.
+- [x] Add Desktop device state.
+- [x] Add Tablet device state.
+- [x] Add Mobile device state.
+- [x] Add Refresh Preview action.
+- [x] Add full browser preview mockup.
+- [x] Hide code editor in Preview mode.
+- [x] Hide Agent Dock in Preview mode.
 
 ## Module 9: Styling and Responsive Behavior
 

@@ -76,6 +76,13 @@ function reducer(state, action) {
       return { ...state, agentModalOpen: true };
     case "CLOSE_AGENT_MODAL":
       return { ...state, agentModalOpen: false };
+    case "SET_PREVIEW_DEVICE":
+      return { ...state, previewDevice: action.device };
+    case "REFRESH_PREVIEW":
+      return {
+        ...state,
+        toast: { id: Date.now(), message: `${state.previewDevice[0].toUpperCase()}${state.previewDevice.slice(1)} preview refreshed.` },
+      };
     case "SET_WORKSPACE":
       return {
         ...state,

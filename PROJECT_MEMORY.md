@@ -61,6 +61,8 @@ Prepare and then build a React/Vite frontend prototype for Tri Studio. The proto
 - Used for full visual preview.
 - Must hide code editor.
 - Must hide Agent Dock.
+- Module 8 implements `PreviewSidePanel` and `PreviewWorkspace` with Desktop, Tablet, and Mobile device controls.
+- Preview refresh is simulated through reducer toast state; no real iframe or dev-server preview integration yet.
 
 ## Core Architecture Decisions
 
@@ -124,5 +126,6 @@ Before or during every implementation change:
 - Module 5 Code Side Panel is complete with `CodeSidePanel`, `ProjectActions`, `FileTree`, `ChangedFilesList`, Create Project simulation, folder selection, code uploads, and dirty-file display.
 - Module 6 Code Workspace is complete with header, branch label, current task strip, View Plan, Run Agents simulation, inline agent prompt, inline preview, and bottom panel tabs.
 - Module 7 Agent Dock and Agent Manager is complete with reusable agent cards, dock Tasks/Chat/Tools views, progress bars, tool shortcuts, and modal close via button/backdrop.
+- Module 8 Preview Mode is complete with dedicated side panel/workspace, device switching, refresh action, full mock browser preview, and preserved hiding of code editor/Agent Dock.
 - In this sandbox, `npm run dev` may require elevated execution because Vite startup can hit a dependency spawn `EPERM`.
 

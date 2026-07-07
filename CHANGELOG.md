@@ -6,6 +6,8 @@ All notable changes to the Tri Studio app and project documents will be recorded
 
 ### Added
 
+- Completed Module 8 Preview Mode with `PreviewSidePanel` and `PreviewWorkspace` components.
+- Added Desktop, Tablet, and Mobile preview device controls, refresh preview action, reducer-backed preview device state, and full mock browser preview canvas.
 - Completed Module 7 Agent Dock and Agent Manager with reusable `AgentCard`, Tasks/Chat/Tools dock views, progress bars, tool shortcuts, and `AgentManagerModal`.
 - Added mock agent and tool data, top-bar Agent Manager opening, and modal close behavior from both close button and backdrop.
 - Completed Module 6 Code Workspace and Preview with `CodeWorkspace`, `InlineAgentPrompt`, `InlinePreview`, and `BottomPanel` components.
@@ -38,6 +40,7 @@ All notable changes to the Tri Studio app and project documents will be recorded
 
 ### Notes
 
+- Module 8 verification: `npm run build` passes.
 - Module 7 verification: `npm run build` passes.
 - Module 6 verification: `npm run build` passes.
 - Module 5 verification: `npm run build` passes and local dev server returned HTTP 200.
