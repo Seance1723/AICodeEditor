@@ -23,18 +23,19 @@ Rule: every new modification must add or update relevant tasks here before or du
 
 ## Module 1: Project Foundation
 
-- [ ] Initialize Vite React project in this workspace.
-- [ ] Install `@monaco-editor/react`.
-- [ ] Install `monaco-editor`.
-- [ ] Install `lucide-react`.
-- [ ] Install `sass`.
-- [ ] Add `src/main.jsx`.
-- [ ] Add `src/App.jsx`.
-- [ ] Add SCSS partial structure under `src/styles`.
-- [ ] Add light-mode design tokens.
-- [ ] Add initial app shell placeholder.
-- [ ] Verify `npm run dev` starts.
-- [ ] Verify `npm run build` passes.
+- [x] Initialize Vite React project in this workspace.
+- [x] Install `@monaco-editor/react`.
+- [x] Install `monaco-editor`.
+- [x] Install `lucide-react`.
+- [x] Install `sass`.
+- [x] Add `src/main.jsx`.
+- [x] Add `src/App.jsx`.
+- [x] Add SCSS partial structure under `src/styles`.
+- [x] Add light-mode design tokens.
+- [x] Add initial app shell placeholder.
+- [x] Add `.gitignore` for dependency, build, and local environment outputs.
+- [x] Verify `npm run dev` starts.
+- [x] Verify `npm run build` passes.
 
 ## Module 2: Editor Shell
 
@@ -183,3 +184,6 @@ Rule: every new modification must add or update relevant tasks here before or du
 - [ ] Add command palette.
 - [ ] Add keyboard shortcuts.
 - [ ] Add project persistence.
+
+
+

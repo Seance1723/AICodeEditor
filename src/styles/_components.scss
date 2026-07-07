@@ -1,0 +1,182 @@
+.top-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 16px;
+  border-bottom: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px);
+}
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  flex: 0 0 auto;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--primary);
+  background: var(--surface-3);
+}
+
+.brand-copy {
+  display: grid;
+  min-width: 160px;
+  line-height: 1.1;
+}
+
+.brand-copy strong {
+  font-size: 14px;
+}
+
+.brand-copy span,
+.panel-label,
+.status-bar,
+.side-panel p,
+.workspace-empty p,
+.agent-dock p {
+  color: var(--muted);
+}
+
+.mode-switcher {
+  display: flex;
+  gap: 6px;
+  margin-left: 16px;
+  padding: 4px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-2);
+}
+
+.mode-switcher button,
+.status-pill,
+.activity-rail button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid transparent;
+  color: var(--muted);
+  background: transparent;
+}
+
+.mode-switcher button {
+  min-height: 34px;
+  padding: 0 12px;
+  border-radius: 7px;
+}
+
+.mode-switcher button:hover,
+.mode-switcher button.is-active,
+.activity-rail button:hover,
+.activity-rail button.is-active {
+  color: var(--primary);
+  border-color: var(--line-2);
+  background: var(--surface);
+}
+
+.status-pill {
+  min-height: 34px;
+  margin-left: auto;
+  padding: 0 12px;
+  border-color: var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+}
+
+.status-pill + .status-pill {
+  margin-left: 0;
+}
+
+.status-pill--safe {
+  color: var(--success);
+}
+
+.activity-rail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 8px;
+  border-right: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.activity-rail button {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius);
+}
+
+.side-panel,
+.agent-dock {
+  padding: 18px;
+  border-right: 1px solid var(--line);
+  background: var(--surface-2);
+}
+
+.agent-dock {
+  border-right: 0;
+  border-left: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.panel-label {
+  margin: 0 0 10px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.side-panel h1,
+.workspace-empty h2,
+.agent-dock h2 {
+  margin: 0 0 10px;
+  color: var(--text);
+  line-height: 1.15;
+}
+
+.side-panel h1 {
+  font-size: 22px;
+}
+
+.workspace-panel {
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.62), rgba(244, 247, 251, 0.94)),
+    var(--bg);
+}
+
+.workspace-empty {
+  width: min(680px, 100%);
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.workspace-empty h2 {
+  font-size: 28px;
+}
+
+.workspace-empty p,
+.side-panel p,
+.agent-dock p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.status-bar {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 0 14px;
+  border-top: 1px solid var(--line);
+  background: var(--surface);
+  font-size: 12px;
+}

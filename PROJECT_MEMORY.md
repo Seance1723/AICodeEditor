@@ -95,5 +95,11 @@ Before or during every implementation change:
 ## Current Status
 
 - Planning artifacts have been created.
-- React/Vite app has not yet been initialized.
-- No runtime verification has been performed because there is no app code yet.
+- React/Vite app has been initialized.
+- Module 1 dependencies are installed: React, Vite, `@monaco-editor/react`, `monaco-editor`, `lucide-react`, and `sass`.
+- Initial light-mode shell placeholder exists in `src/App.jsx`.
+- SCSS partial structure exists under `src/styles`.
+- `npm run build` passes.
+- Dev server verified at `http://127.0.0.1:5173`.
+- In this sandbox, `npm run dev` may require elevated execution because Vite startup can hit a dependency spawn `EPERM`.
+
