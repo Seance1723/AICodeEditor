@@ -1,4 +1,4 @@
-﻿# Tri Studio Monaco-Based Module Implementation Plan
+# Tri Studio Monaco-Based Module Implementation Plan
 
 Last updated: 2026-07-07
 
@@ -378,6 +378,185 @@ Acceptance:
 - No console errors during core interactions.
 - QA checklist is current.
 
+## Settings Expansion Modules
+
+The settings layout plan at `C:\Users\Tanvi\Downloads\tri-studio-settings-layout-plan.md` extends the completed Chat, Code, and Preview shell. Settings is a system workspace, not a fourth primary product mode. It opens full-page in the main workspace, keeps the TopBar, ActivityRail, and StatusBar visible, replaces the normal side panel with settings navigation, and hides the Agent Dock.
+
+Settings remains prototype-only in this pass: use mock settings state, mock provider/tool/plugin/MCP data, and local UI feedback. Do not add backend persistence, real keychain access, real extension installs, real MCP server control, or real AI execution yet.
+
+### Module 11: Settings Shell Integration
+
+Goal: Add Settings as a system workspace inside the existing editor shell.
+
+Scope:
+
+- Add `settings` to app view state.
+- Store the previous Chat, Code, or Preview view before opening Settings.
+- Wire the activity rail gear to open Settings.
+- Hide Agent Dock in Settings.
+- Replace the normal left side panel with Settings navigation.
+- Render Settings full-page in the main workspace.
+- Exit Settings when Chat, Code, or Preview is selected.
+- Update StatusBar messaging for Settings.
+
+Acceptance:
+
+- Gear opens Settings full-page.
+- Settings is not shown as a top switcher tab.
+- Chat, Code, and Preview actions leave Settings predictably.
+- TopBar, ActivityRail, and StatusBar remain visible.
+
+### Module 12: Settings Navigation and Search
+
+Goal: Build grouped navigation for the Settings workspace.
+
+Scope:
+
+- Create a central settings section model.
+- Add navigation groups: General, AI, Execution, Security, Workspace.
+- Add sections: Appearance, Editor, Privacy, Model Providers, Agents, Tasks & Execution, Tools & Memory, Secrets & Privacy, Extensions, Onboarding.
+- Add settings search by group, section label, description, and row labels.
+- Add keyboard navigation with Arrow Up, Arrow Down, Home, and End.
+- Add selected, empty, and search-result states.
+
+Acceptance:
+
+- Search filters relevant settings.
+- Section selection updates content.
+- Keyboard navigation works without trapping focus.
+
+### Module 13: Shared Settings Components
+
+Goal: Create reusable settings UI primitives that match the existing light-mode editor shell.
+
+Components:
+
+- `SettingsWorkspace`
+- `SettingsContent`
+- `SettingsSectionHeader`
+- `SettingsCard`
+- `SettingsRow`
+- `ToggleRow`
+- `SegmentedControl`
+- Number, text, and select field primitives
+- Status and risk badges
+- `InlineConfirm`
+
+Acceptance:
+
+- Rows support labels, helper text, summary values, badges, inline controls, and drawer affordances.
+- Inline destructive confirmation works without a modal.
+- Components use the existing light-mode visual language.
+
+### Module 14: Settings Drawer System
+
+Goal: Implement right slide-in drawers for detail-heavy settings.
+
+Scope:
+
+- Add `SettingsDrawer` with standard and wide sizes.
+- Add overlay, close button, and Escape close behavior.
+- Focus the first field on open and return focus to the opener on close.
+- Keep draft state separate from persisted settings state.
+- Warn before closing a dirty drawer.
+- Add sticky Cancel and Save footer.
+
+Acceptance:
+
+- Drawer-save settings can be edited, cancelled, saved, and discarded safely.
+- Wide drawer supports table-heavy settings like permissions, token usage, knowledge base, and MCP servers.
+
+### Module 15: General Settings
+
+Goal: Implement Appearance, Editor, and Privacy settings.
+
+Scope:
+
+- Appearance: theme, density, font size, reduce motion, notifications drawer.
+- Editor: Monaco font size, font family, tab size, word wrap, minimap.
+- Privacy: telemetry and crash reports, both off by default.
+- Immediate-save labels and save status feedback.
+
+Acceptance:
+
+- General controls apply immediately where specified.
+- Notifications use drawer Save.
+- Monaco preference controls update prototype settings state.
+
+### Module 16: AI Settings
+
+Goal: Implement Model Providers and Agents settings.
+
+Scope:
+
+- Provider catalog with 16 supported providers.
+- Provider connection rows with mock add/remove API key actions.
+- Role assignment controls.
+- Quota and cost table.
+- Drawers for Add Model, Fallback Chains, Cost Caps, and Token Usage.
+- Agents section with drawers for Agent Types, System Prompts, Tool Permissions, and Token Budgets.
+
+Acceptance:
+
+- Connected and not-connected provider states are clear.
+- Stored API keys are never displayed after save.
+- Tool permissions use a readable wide drawer.
+
+### Module 17: Execution Settings
+
+Goal: Implement Tasks & Execution and Tools & Memory settings.
+
+Scope:
+
+- Drawers for parallelism, deadlines/timeouts, approval gates, quality gating, and retry policy.
+- Drawers for network allowlist, tool registry, retention period, and knowledge base.
+- Long-term memory immediate toggle.
+- Approval and risk labels for sensitive rows.
+
+Acceptance:
+
+- Approval gates clearly state that patch application always requires approval.
+- Tool registry remains read-only in the prototype.
+- Knowledge base uses a wide drawer and inline confirmations for removals.
+
+### Module 18: Security and Workspace Settings
+
+Goal: Implement Secrets & Privacy, Extensions, and Onboarding settings.
+
+Scope:
+
+- Secrets vault UI with storage backend row and provider secret status rows.
+- Add or Rotate Secret drawer.
+- Delete secret inline confirmation.
+- Data Retention drawer.
+- Extensions UI for suggested TRI plugins, VS Code Marketplace mock search, compatibility dashboard, installed extensions, installed TRI plugins, audit log, and MCP servers.
+- Onboarding section with Re-run Onboarding action.
+
+Acceptance:
+
+- Secret values are write-only and never displayed.
+- Extension and MCP actions communicate approval/risk state.
+- Onboarding can be reached from Settings without leaving the editor shell.
+
+### Module 19: Settings QA, Accessibility, and Polish
+
+Goal: Verify the Settings experience end to end.
+
+Scope:
+
+- Run production build.
+- Test Settings open/exit behavior.
+- Test navigation, search, keyboard support, focus management, drawers, dirty discard flow, inline confirmations, save labels, and responsive layout.
+- Confirm secret values are never displayed.
+- Check browser console if the in-app browser surface is available.
+- Update documentation with QA results.
+
+Acceptance:
+
+- Settings is accessible, responsive, and consistent with the existing light-mode editor shell.
+- Build passes.
+- Known verification limitations are recorded.
+
 ## Monaco Design Notes
 
 - Use Monaco as the code editor base from the first code implementation.
@@ -403,5 +582,5 @@ Do not build these in the first prototype unless explicitly requested:
 - Project persistence.
 - Command palette.
 - Keyboard shortcuts.
-- Model/provider settings.
+- Real model/provider persistence and secure keychain integration.
 

@@ -6,6 +6,9 @@ All notable changes to the Tri Studio app and project documents will be recorded
 
 ### Added
 
+- Analyzed the Settings layout plan and extended the implementation roadmap with Modules 11-19 for Settings shell integration, navigation/search, shared components, drawer behavior, General settings, AI settings, Execution settings, Security/Workspace settings, and Settings QA.
+- Added detailed Settings tasks to `TASKLIST.md` covering full-page system workspace behavior, mock settings state, immediate-save controls, drawer-save flows, write-only secrets, extension/MCP mock UI, accessibility, and responsive verification.
+- Updated project memory with the Settings source plan, durable Settings placement rules, drawer rules, save behavior, and secret-handling constraints.
 - Completed Module 10 QA and Build Verification using production build, local HTTP check, source hygiene scans, and static workflow coverage checks for Chat, Code, Monaco, uploads, preview toggle, agent simulation, bottom tabs, Agent Dock, Agent Manager, and Preview device switching.
 - Completed Module 9 Styling and Responsive Behavior with stable shell grids, Monaco/container sizing polish, focus-visible states, hover/active consistency, empty-state polish, scroll behavior, and responsive side-panel/dock collapse rules.
 - Added responsive breakpoints for desktop, medium, tablet, and narrow mobile layouts across Chat, Code, Preview, Agent Dock, modals, bottom panel, and Monaco editor areas.
@@ -43,6 +46,7 @@ All notable changes to the Tri Studio app and project documents will be recorded
 
 ### Notes
 
+- Settings roadmap source: `C:\Users\Tanvi\Downloads\tri-studio-settings-layout-plan.md`. This documentation-only update did not require a production build.
 - Module 10 verification: `npm run build` passes, local dev server returned HTTP 200, source scans found no `console.*`, `debugger`, inline SVG, emoji, or dark-mode markers in `src`, and static workflow checks passed.
 - Module 10 limitation: browser-console inspection could not be completed because the in-app browser surface reported `Browser is not available: iab`.
 - Module 9 verification: `npm run build` passes, local dev server returned HTTP 200, and source scans found no inline SVG/emoji or dark-mode markers in `src`.

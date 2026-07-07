@@ -11,10 +11,11 @@ Product type: Light-mode AI-native code editor UI.
 Workspace: `C:\xampp\htdocs\AICodeEditor`
 
 Source plan analyzed: `C:\Users\Tanvi\Downloads\tri-studio-react-implementation-plan.md`
+Settings layout plan analyzed: `C:\Users\Tanvi\Downloads\tri-studio-settings-layout-plan.md`
 
 ## Current Goal
 
-Prepare and then build a React/Vite frontend prototype for Tri Studio. The prototype must use Monaco Editor as the base code editor and modify/customize it for the Tri Studio experience.
+Continue building the React/Vite frontend prototype for Tri Studio. The completed base shell uses Monaco Editor as the code editor, and the next planned modules add Settings as a full-page system workspace.
 
 ## Durable Instructions
 
@@ -33,7 +34,15 @@ Prepare and then build a React/Vite frontend prototype for Tri Studio. The proto
 - Every new modification must update `TASKLIST.md`.
 - Every completed app or documentation change must update `CHANGELOG.md`.
 - Update this file when project assumptions, instructions, architecture decisions, or durable context changes.
-
+- Settings is a system workspace, not a fourth primary Chat/Code/Preview mode.
+- Settings must open full-page in the main workspace area from the activity rail gear and future command/menu hooks.
+- Settings must keep TopBar, ActivityRail, and StatusBar visible.
+- Settings must replace the normal side panel with settings navigation and hide Agent Dock.
+- Settings must remember the previous Chat, Code, or Preview view and return predictably when closed.
+- Settings controls must distinguish immediate-save rows from drawer-save rows.
+- Settings drawers must support standard and wide sizes, dirty draft protection, Escape close, overlay close, focus restoration, and sticky Cancel/Save footer.
+- Secrets are write-only: never display stored API key values, never log key values, and clear typed secret fields after mock save.
+- Settings implementation remains mock/prototype-only until backend persistence, keychain storage, extension installation, MCP control, and real agent execution are explicitly approved.
 ## Product Modes
 
 ### Chat
@@ -63,6 +72,16 @@ Prepare and then build a React/Vite frontend prototype for Tri Studio. The proto
 - Must hide Agent Dock.
 - Module 8 implements `PreviewSidePanel` and `PreviewWorkspace` with Desktop, Tablet, and Mobile device controls.
 - Preview refresh is simulated through reducer toast state; no real iframe or dev-server preview integration yet.
+
+### Settings
+
+- Used for system configuration, not primary project work.
+- Must open as a full-page system workspace rather than a top switcher tab.
+- Must preserve the editor shell orientation with TopBar, ActivityRail, and StatusBar visible.
+- Must hide Agent Dock and use a SettingsSidebar in place of the normal side panel.
+- Navigation groups are General, AI, Execution, Security, and Workspace.
+- Sections are Appearance, Editor, Privacy, Model Providers, Agents, Tasks & Execution, Tools & Memory, Secrets & Privacy, Extensions, and Onboarding.
+- Settings state is prototype/mock state in the next modules; real persistence and OS keychain integration are later enhancements.
 
 ## Core Architecture Decisions
 
@@ -104,6 +123,15 @@ Before or during every implementation change:
 8. Preview mode
 9. Styling and responsive behavior
 10. QA and build verification
+11. Settings shell integration
+12. Settings navigation and search
+13. Shared settings components
+14. Settings drawer system
+15. General settings
+16. AI settings
+17. Execution settings
+18. Security and workspace settings
+19. Settings QA, accessibility, and polish
 
 ## Open Questions
 
@@ -129,5 +157,6 @@ Before or during every implementation change:
 - Module 8 Preview Mode is complete with dedicated side panel/workspace, device switching, refresh action, full mock browser preview, and preserved hiding of code editor/Agent Dock.
 - Module 9 Styling and Responsive Behavior is complete with responsive shell grids, focus-visible states, stable Monaco sizing, side-panel/dock collapse rules, no inline SVG/emoji usage, and no dark-mode markers in source styles.
 - Module 10 QA and Build Verification is complete except browser-console inspection, which is blocked because the in-app browser surface is unavailable in this session. Production build, local HTTP, source hygiene, and static workflow coverage checks pass.
+- Settings layout planning is complete: Modules 11-19 now cover Settings shell integration, navigation/search, shared settings components, drawer system, General settings, AI settings, Execution settings, Security/Workspace settings, and Settings QA.
 - In this sandbox, `npm run dev` may require elevated execution because Vite startup can hit a dependency spawn `EPERM`.
 

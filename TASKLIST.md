@@ -17,6 +17,7 @@ Rule: every new modification must add or update relevant tasks here before or du
 - [x] Create persistent tasklist.
 - [x] Create changelog.
 - [x] Create project memory file.
+- [x] Analyze settings layout plan and extend the module roadmap.
 - [ ] Keep tasklist updated for every new modification.
 - [ ] Keep changelog updated for every completed app/documentation change.
 - [ ] Update project memory when a durable decision, instruction, or assumption changes.
@@ -171,6 +172,147 @@ Rule: every new modification must add or update relevant tasks here before or du
 - [x] Test Preview mode device switching.
 - [!] Check browser console for errors. Blocked: in-app browser surface is unavailable in this session (`Browser is not available: iab`).
 - [x] Update changelog with QA result.
+
+## Module 11: Settings Shell Integration
+
+- [ ] Add `settings` to app view state.
+- [ ] Track `previousMainView` for Chat, Code, and Preview return behavior.
+- [ ] Wire the activity rail gear to open Settings.
+- [ ] Make the gear active while Settings is open.
+- [ ] Hide Agent Dock while Settings is open.
+- [ ] Replace the normal side panel with settings navigation in Settings view.
+- [ ] Render Settings full-page in the main workspace area.
+- [ ] Ensure Chat, Code, and Preview top switcher actions exit Settings.
+- [ ] Add Settings-specific status bar text.
+
+## Module 12: Settings Navigation and Search
+
+- [ ] Create centralized settings section data.
+- [ ] Build `SettingsSidebar`.
+- [ ] Build `SettingsSearch`.
+- [ ] Render grouped navigation for General, AI, Execution, Security, and Workspace.
+- [ ] Add selected section state.
+- [ ] Add search filtering by group, section label, description, and row labels.
+- [ ] Add search empty state.
+- [ ] Add keyboard navigation with Arrow Up, Arrow Down, Home, and End.
+
+## Module 13: Shared Settings Components
+
+- [ ] Build `SettingsWorkspace`.
+- [ ] Build `SettingsContent`.
+- [ ] Build `SettingsSectionHeader`.
+- [ ] Build `SettingsCard`.
+- [ ] Build `SettingsRow`.
+- [ ] Build `ToggleRow`.
+- [ ] Build `SegmentedControl`.
+- [ ] Build number, text, and select field primitives.
+- [ ] Build shared status/risk badges.
+- [ ] Build `InlineConfirm`.
+- [ ] Add light-mode settings styles consistent with the editor shell.
+
+## Module 14: Settings Drawer System
+
+- [ ] Build `SettingsDrawer`.
+- [ ] Support standard drawer width.
+- [ ] Support wide drawer width for table-heavy settings.
+- [ ] Add overlay click close.
+- [ ] Add Escape close.
+- [ ] Add close button behavior.
+- [ ] Focus the first field when drawer opens.
+- [ ] Return focus to the triggering row when drawer closes.
+- [ ] Add draft state and dirty tracking.
+- [ ] Add dirty drawer discard confirmation.
+- [ ] Add sticky Cancel and Save footer.
+
+## Module 15: General Settings
+
+- [ ] Build Appearance settings section.
+- [ ] Add theme segmented control.
+- [ ] Add density segmented control.
+- [ ] Add interface font size segmented control.
+- [ ] Add reduce motion toggle.
+- [ ] Build Notifications drawer.
+- [ ] Build Editor settings section.
+- [ ] Add Monaco font size control.
+- [ ] Add Monaco font family control.
+- [ ] Add tab size control.
+- [ ] Add word wrap toggle.
+- [ ] Add minimap toggle.
+- [ ] Build Privacy settings section.
+- [ ] Add telemetry toggle defaulting off.
+- [ ] Add crash reports toggle defaulting off.
+- [ ] Add immediate-save labels and save status feedback.
+
+## Module 16: AI Settings
+
+- [ ] Build Model Providers settings section.
+- [ ] Add provider catalog with 16 supported providers.
+- [ ] Add provider connection rows.
+- [ ] Add mock API key save and remove actions.
+- [ ] Ensure stored API keys are never displayed after save.
+- [ ] Add role assignment controls.
+- [ ] Add quota and cost table with empty state.
+- [ ] Build Add Model drawer.
+- [ ] Build Fallback Chains drawer.
+- [ ] Build Cost Caps drawer.
+- [ ] Build Token Usage drawer.
+- [ ] Build Agents settings section.
+- [ ] Build Agent Types drawer.
+- [ ] Build System Prompts drawer.
+- [ ] Build Tool Permissions wide drawer.
+- [ ] Build Token Budgets drawer.
+
+## Module 17: Execution Settings
+
+- [ ] Build Tasks & Execution settings section.
+- [ ] Build Parallelism drawer.
+- [ ] Build Deadlines & Timeouts drawer.
+- [ ] Build Approval Gates drawer.
+- [ ] Build Quality Gating drawer.
+- [ ] Build Retry Policy drawer.
+- [ ] Build Tools & Memory settings section.
+- [ ] Build Network Allowlist drawer.
+- [ ] Build Tool Registry drawer.
+- [ ] Add long-term memory toggle.
+- [ ] Build Retention Period drawer.
+- [ ] Build Knowledge Base wide drawer.
+- [ ] Add approval and risk labeling where relevant.
+
+## Module 18: Security and Workspace Settings
+
+- [ ] Build Secrets & Privacy settings section.
+- [ ] Add storage backend row.
+- [ ] Add provider secret status rows.
+- [ ] Build Add or Rotate Secret drawer.
+- [ ] Add delete secret inline confirm.
+- [ ] Build Data Retention drawer.
+- [ ] Build Extensions settings section.
+- [ ] Add suggested TRI plugin mock rows.
+- [ ] Add VS Code Marketplace search mock.
+- [ ] Add compatibility dashboard row.
+- [ ] Add installed VS Code extensions list.
+- [ ] Add installed TRI plugins list.
+- [ ] Build Plugin Audit Log drawer.
+- [ ] Build MCP Servers drawer.
+- [ ] Build Onboarding settings section.
+- [ ] Add Re-run Onboarding action.
+
+## Module 19: Settings QA, Accessibility, and Polish
+
+- [ ] Run production build.
+- [ ] Test Settings open and exit behavior.
+- [ ] Test settings sidebar search.
+- [ ] Test settings keyboard navigation.
+- [ ] Test all settings sections render.
+- [ ] Test all drawer open, cancel, save, and close paths.
+- [ ] Test dirty drawer discard confirmation.
+- [ ] Test inline destructive confirmations.
+- [ ] Test immediate-save versus drawer-save labels.
+- [ ] Test secret rows never display stored values.
+- [ ] Test responsive settings layout.
+- [ ] Test reduced-motion handling.
+- [ ] Check browser console if the in-app browser surface is available.
+- [ ] Update changelog with Settings QA results.
 
 ## Later Enhancements
 
