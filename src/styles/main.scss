@@ -39,3 +39,18 @@ button {
 #root {
   isolation: isolate;
 }
+
+:focus-visible {
+  outline: 2px solid var(--primary-2);
+  outline-offset: 2px;
+}
+
+button:disabled,
+[aria-disabled="true"] {
+  cursor: not-allowed;
+}
+
+::selection {
+  color: var(--text);
+  background: #dfe7ff;
+}

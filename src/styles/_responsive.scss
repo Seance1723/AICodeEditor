@@ -1,6 +1,21 @@
+@media (max-width: 1280px) {
+  :root {
+    --side: 280px;
+    --dock: 320px;
+  }
+
+  .code-editor-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(220px, 30%);
+  }
+
+  .preview-product-shell h3 {
+    font-size: 36px;
+  }
+}
+
 @media (max-width: 1100px) {
   .app-shell {
-    grid-template-columns: var(--rail) 260px minmax(0, 1fr);
+    grid-template-columns: var(--rail) 270px minmax(0, 1fr);
     grid-template-areas:
       "topbar topbar topbar"
       "rail side workspace"
@@ -10,10 +25,76 @@
   .agent-dock {
     display: none;
   }
+
+  .code-editor-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .inline-preview {
+    min-height: 260px;
+  }
+
+  .manager-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .top-bar {
+    gap: 8px;
+    padding: 0 10px;
+  }
+
+  .brand-copy {
+    min-width: 112px;
+  }
+
+  .mode-switcher {
+    margin-left: 4px;
+  }
+
+  .status-pill {
+    padding: 0 10px;
+  }
+
+  .workspace-panel {
+    padding: 16px;
+  }
+
+  .chat-hero,
+  .preview-workspace-header,
+  .workspace-header,
+  .modal-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .current-task-strip {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .current-task-strip div {
+    grid-column: 1 / -1;
+  }
+
+  .current-task-strip button {
+    justify-content: center;
+  }
+
+  .preview-grid-mock {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 760px) {
-  .app-shell {
+  :root {
+    --rail: 54px;
+    --topbar: 58px;
+  }
+
+  .app-shell,
+  .app-shell[data-mode="chat"],
+  .app-shell[data-mode="preview"] {
     grid-template-columns: var(--rail) minmax(0, 1fr);
     grid-template-areas:
       "topbar topbar"
@@ -31,7 +112,124 @@
     margin-left: 0;
   }
 
-  .mode-switcher button span {
+  .mode-switcher button {
+    padding: 0 10px;
+  }
+
+  .mode-switcher button span,
+  .status-bar span:nth-child(n + 3) {
+    display: none;
+  }
+
+  .activity-rail {
+    padding: 10px 6px;
+  }
+
+  .activity-rail button {
+    width: 40px;
+    height: 40px;
+  }
+
+  .chat-workspace,
+  .preview-workspace,
+  .code-workspace-shell {
+    border-radius: 0;
+  }
+
+  .chat-hero,
+  .preview-workspace-header {
+    padding: 16px;
+  }
+
+  .chat-hero h2,
+  .preview-workspace-header h2,
+  .code-workspace-shell h2 {
+    font-size: 22px;
+  }
+
+  .chat-composer {
+    grid-template-columns: 36px minmax(0, 1fr) 38px;
+    padding: 10px;
+  }
+
+  .composer-icon-button,
+  .composer-send {
+    width: 36px;
+    height: 36px;
+  }
+
+  .preview-device-frame {
+    padding: 14px;
+  }
+
+  .preview-product-shell main {
+    padding: 24px;
+  }
+
+  .preview-product-shell h3 {
+    font-size: 28px;
+  }
+
+  .modal-backdrop {
+    padding: 12px;
+  }
+}
+
+@media (max-width: 560px) {
+  .brand-copy {
+    min-width: auto;
+  }
+
+  .brand-copy strong,
+  .status-pill,
+  .icon-button {
+    display: none;
+  }
+
+  .top-bar {
+    justify-content: space-between;
+  }
+
+  .mode-switcher {
+    flex: 1 1 auto;
+    justify-content: center;
+  }
+
+  .workspace-panel {
+    padding: 10px;
+  }
+
+  .current-task-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .header-actions,
+  .editor-toolbar,
+  .editor-file-meta,
+  .editor-toolbar-actions,
+  .bottom-panel-tabs {
+    flex-wrap: wrap;
+  }
+
+  .editor-frame {
+    grid-template-rows: 40px auto minmax(280px, 1fr);
+  }
+
+  .bottom-panel {
+    min-height: 170px;
+  }
+
+  .terminal-log {
+    grid-template-columns: 1fr;
+  }
+
+  .preview-browser-bar,
+  .inline-browser-bar {
+    grid-template-columns: repeat(3, 8px) minmax(0, 1fr);
+  }
+
+  .preview-browser-bar svg,
+  .inline-browser-bar svg {
     display: none;
   }
 }

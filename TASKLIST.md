@@ -138,19 +138,19 @@ Rule: every new modification must add or update relevant tasks here before or du
 
 ## Module 9: Styling and Responsive Behavior
 
-- [ ] Add stable shell grid styles.
-- [ ] Add Monaco container sizing styles.
-- [ ] Add hover states.
-- [ ] Add focus states.
-- [ ] Add active states.
-- [ ] Add empty states.
-- [ ] Add responsive side panel behavior.
-- [ ] Add responsive dock behavior.
-- [ ] Verify text does not overlap at desktop widths.
-- [ ] Verify smaller widths remain usable.
-- [ ] Confirm no emoji icons are used.
-- [ ] Confirm all app icons come from `lucide-react`.
-- [ ] Confirm no dark mode styles exist.
+- [x] Add stable shell grid styles.
+- [x] Add Monaco container sizing styles.
+- [x] Add hover states.
+- [x] Add focus states.
+- [x] Add active states.
+- [x] Add empty states.
+- [x] Add responsive side panel behavior.
+- [x] Add responsive dock behavior.
+- [x] Verify text does not overlap at desktop widths.
+- [x] Verify smaller widths remain usable.
+- [x] Confirm no emoji icons are used.
+- [x] Confirm all app icons come from `lucide-react`.
+- [x] Confirm no dark mode styles exist.
 
 ## Module 10: QA and Build Verification
 

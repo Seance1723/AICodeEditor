@@ -127,5 +127,6 @@ Before or during every implementation change:
 - Module 6 Code Workspace is complete with header, branch label, current task strip, View Plan, Run Agents simulation, inline agent prompt, inline preview, and bottom panel tabs.
 - Module 7 Agent Dock and Agent Manager is complete with reusable agent cards, dock Tasks/Chat/Tools views, progress bars, tool shortcuts, and modal close via button/backdrop.
 - Module 8 Preview Mode is complete with dedicated side panel/workspace, device switching, refresh action, full mock browser preview, and preserved hiding of code editor/Agent Dock.
+- Module 9 Styling and Responsive Behavior is complete with responsive shell grids, focus-visible states, stable Monaco sizing, side-panel/dock collapse rules, no inline SVG/emoji usage, and no dark-mode markers in source styles.
 - In this sandbox, `npm run dev` may require elevated execution because Vite startup can hit a dependency spawn `EPERM`.
 

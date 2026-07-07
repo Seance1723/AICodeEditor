@@ -6,7 +6,7 @@
     "topbar topbar topbar topbar"
     "rail side workspace dock"
     "status status status status";
-  min-width: 0;
+  min-width: 320px;
   height: 100vh;
   overflow: hidden;
   background: var(--bg);
@@ -23,16 +23,20 @@
 
 .top-bar {
   grid-area: topbar;
+  min-width: 0;
 }
 
 .activity-rail {
   grid-area: rail;
+  min-width: 0;
 }
 
 .side-panel {
   grid-area: side;
   min-width: 0;
+  min-height: 0;
   overflow: auto;
+  overscroll-behavior: contain;
 }
 
 .workspace-panel {
@@ -40,14 +44,18 @@
   min-width: 0;
   min-height: 0;
   overflow: auto;
+  overscroll-behavior: contain;
 }
 
 .agent-dock {
   grid-area: dock;
   min-width: 0;
+  min-height: 0;
   overflow: auto;
+  overscroll-behavior: contain;
 }
 
 .status-bar {
   grid-area: status;
+  min-width: 0;
 }

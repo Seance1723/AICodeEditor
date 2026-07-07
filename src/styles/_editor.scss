@@ -452,3 +452,49 @@
   color: var(--muted);
   line-height: 1.5;
 }
+/* Module 9 editor polish */
+.code-workspace-shell {
+  min-height: 560px;
+}
+
+.code-editor-grid,
+.editor-column,
+.editor-frame,
+.monaco-editor-shell,
+.inline-preview,
+.inline-browser,
+.bottom-panel {
+  contain: layout;
+}
+
+.monaco-editor-shell {
+  height: 100%;
+}
+
+.editor-toolbar,
+.current-task-strip,
+.bottom-panel-tabs,
+.inline-preview-header {
+  overflow: hidden;
+}
+
+.current-task-strip button,
+.bottom-panel-tabs button,
+.editor-toolbar .quiet-action {
+  white-space: nowrap;
+}
+
+.editor-toolbar-actions {
+  flex: 0 0 auto;
+}
+
+.bottom-panel-tabs {
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.terminal-log p,
+.approval-card p,
+.inline-browser-body p {
+  overflow-wrap: anywhere;
+}
